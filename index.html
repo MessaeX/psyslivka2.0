@@ -7,9 +7,2032 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" type=text/css>
 
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      background: #ECE8DE;
+    }
+    body {
+      font-family: "onest", sans-serif;
+      background: #F7F5EF;
+      color: #272727;
+
+    }
+    .preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #496141; /* Green background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+  }
+  .preloader-text {
+    color: #F7F5EF; 
+    font-size: 50px; 
+    font-weight: bold; 
+    margin-top: 20px;
+    
+  }
+
+  .content {
+    display: none; /* Hide the content initially */
+  }
+    .surname {
+      color: #000000;
+      font-family: "onest", sans-serif;
+      font-weight: bold;
+    }
+
+    header, .first-block, .second-block, .third-block,.forth-block,.fifth-block,.sixth-block,.seventh-block,.eight-block,.nine-block, .ending {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #F7F5EF;
+      background-origin: border-box;
+      padding-top: 30px;
+    }
+    .navbar-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 55px;
+      height: 55px;
+      border-radius: 25px;
+      background-color: #E2E3D2;
+      /*position: fixed;
+      right: 10px;
+      top: 10px;
+      */
+      z-index: 200;
+    }
+    .navbar-icon {
+      display: block;
+      width: 24px;
+      height: 24px;
+      border-radius: 5px;
+      margin-inline: 12px;
+      transform: rotate(0deg);
+      transition: 1s;
+    }
+
+
+    .first-block {
+      background-color: #F7F5EF;
+      background-origin: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .navbar-side {
+      display: none;
+      flex-direction: column;
+      justify-content: baseline;
+      text-align: left;
+      background-color: #CACCB6;
+      position: fixed;
+      padding-top: 50px;
+      top: 0;
+      left: 0;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+    }
+    .navbar-side-active {
+      display: flex;
+    }
+    .navbar-icon-active {
+      display: none;
+    }
+    .navbar-x-active {
+      display: flex;
+    }
+    ul {
+      list-style: none;
+    }
+    .navbar-side li {
+      margin-left: 10px;
+      color: #272727;
+      font-size: 30px;
+      font-weight: bold;
+      text-indent: 40px;
+      margin-top: 5px;
+    }
+    .navbar-x {
+      display: none;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .active-x {
+      display: block;
+    }
+    .book-in {
+      margin-top: 20px;
+      margin-left: 40px;
+      width: 193px;
+      height: 57px;
+      border-radius: 30px;
+      background-color: #496141;
+      color: #F7F5EF;
+      font-size: 18px;
+      font-weight: 500;
+      border: none;
+    }
+    .navbar-book-in {
+      display: none;
+      width: 137px;
+      height: 44px;
+      border-radius: 30px;
+      background-color: #496141;
+      color: #F7F5EF;
+      font-size: 16px;
+      font-weight: 500;
+      border: none;
+    }
+
+    .h1-mobile {
+      padding-top: 56px;
+      color: #272727;
+      text-align: center;
+      font-family: Onest;
+      font-size: 34px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 40px; /* 117.647% */
+      letter-spacing: -1.02px;
+      text-transform: uppercase;
+      width: 327px;
+    }
+    .underh1 {
+      margin-top: 16px;
+      text-align: center;
+      line-height: 22px;
+    }
+    .animation-ideas {
+      display: flex;
+      flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 50px;
+    width: 350px;
+    height: 500px;
+    }
+    .idea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: "onest", sans-serif;
+    font-style: normal;
+    line-height: 20px;
+
+  }
+  .alone {
+  width: 115px;
+  height: 52px;
+  background-color: #F2E0CF;
+  color: #6C3B0D;
+  transform: rotate(-40.43deg);
+  position: absolute;
+  top: 10px;
+
+}
+.ball11 {
+  width: 46px;
+  height: 46px;
+  position: absolute;
+  top: 47.5px;
+  right: 118px;
+}
+.ideal {
+  width: 291px;
+  height: 52px;
+  background-color: #DDCFBB;
+  color: #553829;
+  transform: rotate(9.5deg);
+  position: absolute;
+  top: 88px;
+}
+.ball22 {
+  width: 57px;
+  height: 57px;
+  position: absolute;
+  right: 214px;
+  top: 130px;
+
+}
+.looser {
+  width: 325px;
+  height: 52px;
+  background-color: #D1D3B9;
+  color: #394B33;
+  transform: rotate(-8deg);
+  position: absolute;
+  top: 178px;
+
+}
+.ball33 {
+  width: 59px;
+  height: 59px;
+  position: absolute;
+  right: 180px;
+  top: 235px;
+}
+.unloved {
+  width: 188px;
+  height: 52px;
+  background-color: #F2E0CF;
+  color: #6C3B0D;
+  transform: rotate(-18.49deg);
+  position: absolute;
+  right: 2px;
+  top: 244px;
+}
+.ball44 {
+  width: 74px;
+  height: 74px;
+  position: absolute;
+  right: 26px;
+  top: 287px;
+}
+.unhappy {
+  width: 343px;
+  height: 52px;
+  background-color: #DDCFBB;
+  color: #553829;
+  transform: rotate(24.37deg);
+  position: absolute;
+  top: 313px;
+  right: 10px;
+
+}
+.ball55 {
+  position: absolute;
+  width: 68px;
+  height: 68px;
+  right: 260px;
+  top: 320px;
+}
+.ball66,.ball77,.follow,.bye {
+  display: none;
+  position: absolute;
+}
+.follow {
+  width: 296px;
+  height: 52px;
+  background: #DDCFBB;
+  color: #553829;
+  transform: rotate(40.56deg);
+}
+.bye {
+  width: 412px;
+height: 52px;
+background-color: #F2E0CF;
+color: #6C3B0D;
+transform: rotate(-17.71deg);
+
+}
+
+
+.h2-mobile,.h2-desktop, .h2andphoto, .underh2text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.h2-mobile {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 38px;
+  letter-spacing: -1%;
+  width: 327px;
+
+}
+.h2-desktop {
+  display: none;
+  
+}
+
+.h2photo {
+  width: 155px;
+  height: 191px;
+  object-fit: cover;
+  object-position: 50%;
+  border-radius: 25px;
+  margin-top: -20px;
+}
+.underh2text-mobile {
+  margin-top: 40px;
+  gap: 8px;
+  text-align: center;
+  line-height: 22px;
+  width: 327px;
+}
+.underh2text-desktop {
+  display: none;
+}
+.edu-heading {
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  padding-top: 70px;
+}
+.edu-ball {
+  width: 50px;
+  height: 50px;
+}
+.edu-work {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "onest", sans-serif;
+  margin-left: 0;
+  margin-left: 12px;
+  width: 231px;
+  line-height: 38px;
+}
+.symptoms-heading {
+  display: flex;
+  align-items: center;
+  padding-top: 70px;
+  padding-bottom: 40px;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "onest", sans-serif;
+  margin-left: 0;
+  margin-left: 12px;
+  width: 231px;
+  line-height: 38px;
+}
+.second-block,.third-block,.forth-block,.fifth-block,.sixth-block,.seventh-block,.eight-block,.nine-block {
+  background: #ECE8DE;
+  background-origin: border-box;
+}
+.second-block {
+  padding-top: 120px;
+}
+.third-block,.seventh-block {
+  height: 1000px;
+}
+.forth-block {
+  padding-top: 150px;
+}
+
+.fifth-block {
+  padding-top: 150px;
+  height: 1800px;
+}
+.sixth-block {
+  padding-top: 1000px;
+  height: 1400px;
+}
+.seventh-block {
+
+}
+
+
+
+.edu-button {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right: 16px;
+  bottom: 24px;  
+}
+.stepnumber,.stepnumber2,.stepnumber3 {
+  margin-top: 16px;
+  color: #6C3B0D;
+  background-color: #F2E0CF;
+  border-radius: 20px;
+  width: 85px;
+  height: 30px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.stepnumber {
+  margin-top: 24px;
+}
+.edutype3,.service-description-about,.service-description-duration,.almamater3{
+  padding-left: 10px;
+}
+
+.stepnumber2 {
+background-color: #DDCFBB;
+color: #553829;
+margin-left: 16px;
+
+font-size: 14px;
+line-height: 18px;
+font-weight: 500;
+}
+.stepnumber3 {
+  background-color: #D1D3B9;
+  color: #394B33;
+  margin-left: 10px;
+}
+.edutype,.edutype-symptoms,.edutype-session {
+  margin-top: 24px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  width: 294px;
+}
+.edutype {
+  width: 294px;
+  padding-right: 0;
+  margin: 0;
+  padding-top: 24px;
+}
+.edutype-session {
+  padding: 0;
+  margin: 0;
+}
+.edutype-symptoms {
+  position: relative;
+  top: 184px;
+  left: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.edutype-symptoms-hide {
+  visibility: hidden;
+}
+.edutype-description {
+  visibility: hidden;
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  width: 278px;
+}
+.edutype-description-show {
+  visibility: visible;
+
+}
+.horizontal-edu-top {
+  position: absolute;
+  top: -8px;
+  left: 8px
+}
+.horizontal-edu-bottom {
+  bottom: 0px;
+  left: 8px;
+  position: absolute;
+}
+.vertical-edu-left {
+  left: 0px;
+  top: 4px;
+  position: absolute;
+}
+.vertical-edu-right {
+  right: 0px;
+  top: 4px;
+  position: absolute;
+}
+.vertical-edu-desktop-top {
+  position: absolute;
+  display: none;
+
+}
+.horizontal-edu-desktop-top {
+  position: absolute;
+  display: none;
+}
+.almamater {
+  font-size: 14px;
+  line-height: 20px;
+  width: 235px;
+  height: 40px;
+}
+.almamater4 {
+  font-size: 16px;
+  width: 303px;
+  line-height: 22px;
+}
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 24px;
+  padding-top: 8px;
+
+  width: 294px;
+  height: 156px;
+  
+}
+/* code for borders */
+
+
+.symptoms-boxes-noborder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  gap: 15px;
+}
+.symptoms-box-noborder {
+ width: 310px;
+ height: 292px;
+ position: relative;
+}
+.horizontal-symptoms-top {
+position: absolute;
+top: -8px;
+right: 0px
+}
+.horizontal-symptoms-bottom {
+  position: absolute;
+  bottom: -8px;
+  right: 0px;
+}
+.horizontal-symptoms-top1 {
+  position: absolute;
+  bottom: -8px;
+  right: 0px;
+}
+.mob {
+  display: none;
+}
+.vertical-symptoms-left {
+  position: absolute;
+  left: -8px;
+  top: 0px;
+  
+}
+.vertical-symptoms-right {
+  position: absolute;
+  right: -8px;
+  top: 0px
+}
+
+.boxes,.box {
+  margin: 0;
+  position: relative;
+}
+.boxes {
+  gap: 8px;
+}
+/*
+.boxes .box {
+  position: relative;
+}
+
+.boxes .box::before, .boxes .box::after {
+  pointer-events: none;
+  position: absolute;
+  content: "";
+}
+.boxes .box::before {
+  inset: calc((var(--spacing) * -1) / 2) var(--spacing);
+  border-bottom: 1px solid currentColor;
+}
+.boxes .box::after {
+  inset: var(--spacing) 0;
+  border-inline: 1px solid currentColor;
+}
+
+
+.boxes .boxLast {
+  position: relative;
+}
+
+.boxes .boxLast::before, .boxes .boxLast::after {
+  pointer-events: none;
+  position: absolute;
+  content: "";
+}
+.boxes .boxLast::before {
+  inset: calc((var(--spacing) * -1) / 2) var(--spacing);
+ 
+}
+.boxes .boxLast::after {
+  inset: var(--spacing) 0;
+  border-inline: 1px solid currentColor;
+}
+*/
+/* code for borders ends */
+
+
+.ten-block {
+  margin-top: 100px;
+  background-color: #FDFAF0;
+  box-sizing: border-box;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.get-in-touch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 47.5px;
+  font-weight: bold;
+}
+
+.whole-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 40px;
+
+}
+.contact-heading {
+  display: block;
+  text-align: left;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 20px;
+  padding-bottom: 4px;
+}
+
+
+input, select, textarea {
+  width: 297px;
+  height: 16px;
+  border-radius: 10px;
+  padding: 15px;
+  border: 1px solid #272727;
+  background-color: #FDFAF0;
+  font-family: "onest", sans-serif;
+  font-size: 16px;
+}
+textarea {
+  padding: 16px 0px 0px 16px;
+  width: 311px;
+  height: 60px;
+  color: #858585;
+}
+select {
+  width: 329px;
+  height: 53px;
+}
+.checkbox-comment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px;
+  gap: 10px;
+}
+ .checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  border-style: solid;
+  background-color: #FDFAF0;
+}
+
+
+.princeps-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.princeps-slider {
+  height: 306px;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  gap: 40px;
+  scroll-snap-type: x mandatory;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  border-radius: 10px;
+}
+.princeps-heading {
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  text-align: center;
+}
+.princeps-work {
+  color: #272727;
+font-family: Onest;
+font-size: 30px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: -0.3px;
+text-transform: uppercase;  
+text-align: left;
+}
+.princeps-ball {
+  position: relative;
+  top: -15px;
+  right: -20px;
+}
+
+.princep-type {
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  padding-top: 40px;
+  gap: 5px;
+  border-bottom: #000000 solid 1px;
+  padding-bottom: 10px;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: bold;
+}
+.princep-content {
+  padding-top: 10px;
+  width: 306px;
+  line-height: 22px;
+}
+/*
+.symptoms-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  font-size: 30px;
+  font-weight: bold;
+  padding-top: 20px;
+  position: relative;
+  right: 50px;
+}
+*/
+.symptoms-ball {
+  position: relative;
+  top: -33px;
+  right: 15px;
+}
+
+.almamater2 {
+  margin-top: 20px;
+  visibility: hidden;
+  position: absolute;
+  bottom: 100px;
+  font-weight: bold;
+  font-size: 18px;
+  left: 16px;
+  
+}
+.almamater2-show {
+  visibility: visible;
+}
+#edutype-symptoms4,#edutype-symptoms5,#edutype-symptoms8 {
+  top: 160px;
+}
+.session-heading {
+  padding-top: 120px;
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  text-align: left;
+}
+.session-work {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 38px;
+  letter-spacing: -1%;
+}
+.session-ball {
+  position: relative;
+  top: -15px;
+  right: -20px;
+}
+
+/*Code for SESSION borders*/
+.boxesS {
+  --spacing: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 327px;
+  height: 300px;
+  margin-inline: auto;
+  gap: var(--spacing);
+  padding-top: 30px;
+}
+
+.boxesS .boxS {
+  position: relative;
+
+}
+
+.boxesS .boxS::before, .boxesS .boxS::after {
+  pointer-events: none;
+  position: absolute;
+  content: "";
+}
+.boxesS .boxS::before {
+  inset: calc((var(--spacing) * -1) / 2) var(--spacing);
+  border-bottom: 1px solid currentColor;
+}
+.boxesS .boxS::after {
+  inset: var(--spacing) 0;
+  border-left: 1px solid currentColor;
+}
+.boxS, .boxSLast {
+  display: flex;
+  flex-direction: column;
+  padding-top: 24px;
+  padding-left: 24px;
+  padding-bottom: 24px;
+  gap:8px;
+}
+
+.boxesS .boxSLast {
+  position: relative;
+}
+
+.boxesS .boxSLast::before, .boxesS .boxSLast::after {
+  pointer-events: none;
+  position: absolute;
+  content: "";
+}
+.boxesS .boxSLast::before {
+  inset: calc((var(--spacing) * -1) / 2) var(--spacing);
+
+ 
+}
+.boxesS .boxSLast::after {
+  inset: var(--spacing) 0;
+  border-left: 1px solid currentColor;
+}
+/*Code for SESSION borders end*/
+
+.services-heading,.faq-heading {
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  text-align: left;
+  padding-top: 120px;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.3px;
+}
+.services-work,.faq-work-mobile,.faq-work-desktop {
+  font-weight: bold;
+  font-size: 30px;
+  padding-left: 20px;
+}
+.faq-work-desktop {
+  display: none;
+}
+.faq-ball {
+  position: relative;
+  top: -15px;
+}
+
+.faq-heading {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+
+/*Code for SERVICES borders*/
+/*
+.boxesSE {
+  --spacing: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 300px;
+  margin-inline: auto;
+  gap: var(--spacing);
+  padding-top: 30px;
+}
+.boxSE,.boxSE2,.boxSE3 {
+  background-color: #ECE8DE;
+
+}
+.boxesSE .boxSE {
+  position: relative;
+}
+
+.boxesSE .boxSE::before, .boxesSE .boxSE::after {
+  pointer-events: none;
+  position: absolute;
+  content: "";
+}
+.boxesSE .boxSE2 {
+  position: relative;
+}
+
+.boxesSE .boxSE2::before, .boxesSE .boxSE2::after {
+  pointer-events: none;
+  position: absolute;
+  content: "";
+}
+.boxesSE .boxSE3 {
+  position: relative;
+}
+
+.boxesSE .boxSE3::before, .boxesSE .boxSE3::after {
+  pointer-events: none;
+  position: absolute;
+  content: "";
+}
+.boxesSE .boxSE::before {
+  inset: calc((var(--spacing) * -1) / 2) var(--spacing);
+  border-bottom: 1px solid currentColor;
+}
+.boxesSE .boxSE::after {
+  inset: var(--spacing) 0;
+  border-right: 1px solid currentColor;
+}
+.boxesSE .boxSE2::before {
+  inset: calc((var(--spacing) * -1) / 2) var(--spacing);
+  border-bottom: 1px solid currentColor;
+}
+.boxesSE .boxSE2::after {
+  inset: var(--spacing) 0;
+  border-left: 1px solid currentColor;
+}
+.boxesSE .boxSE3::before {
+  inset: calc((var(--spacing) * -1) / 2) var(--spacing);
+
+}
+.boxesSE .boxSE3::after {
+  inset: var(--spacing) 0;
+  border-right: 1px solid currentColor;
+}
+*/
+.boxesSE {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.services-heading {
+  padding-bottom: 15px;
+}
+.boxSE,.boxSE2,.boxSE3 {
+  width: 310px;
+  height: 263px;
+  position: relative;
+}
+
+
+
+
+/*Code for SERVICES borders end*/
+.edutype3 {
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 32px;
+}
+.service-description {
+  margin-top: 15px;
+  font-size: 16px;
+  opacity: 0;
+}
+.service-description-duration {
+  margin-top: 10px;
+  color: #D1D3B9;
+}
+.almamater3 {
+  font-size: 30px;
+  font-weight: 500;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  line-height: 38px;
+  letter-spacing: -4%;
+  color: #272727;
+}
+.almamater33 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.review-heading {
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  text-align: left;
+  height: 50px;
+  color: #272727;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  text-transform: uppercase;
+}
+.review-work {
+  font-weight: bold;
+  font-size: 30px;
+}
+.review-ball {
+  padding-left: 10px;
+}
+
+.review-accordion {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.accordion-heading{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: #272727 1px solid;
+  width: 327px;
+  height: 40px;
+
+}
+/*
+.accordion-heading-hide {
+  display: none;
+
+}
+*/
+
+.accordion-inside {
+  visibility: hidden;
+  color: #FDFAF0;
+  font-weight: 400;
+  background-color: #496141;
+  border-radius: 15px;
+  padding-inline: 15px;
+  grid-template-rows: 450px 40px;
+  max-width: 0;
+  max-height: 0;
+ 
+}
+.accordion-upside {
+  display: none;
+  visibility: hidden;
+  color: #D1D3B9;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: #D1D3B9 1px solid;
+  padding-top: 5px;
+  max-width: 0;
+  max-height: 0;
+
+}
+
+.inside-show {
+  display: grid;
+  max-width: 350px;
+  max-height: 550px;
+  visibility: visible;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+.upside-show {
+  display: flex;
+  visibility: visible;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 350px;
+  max-height: 80px;
+}
+.heading-hide {
+  max-width: 0;
+  max-height: 0;
+  display: none;
+}
+
+/*
+.accordion-inside-show,.accordion-upside-show {
+
+transition: 0.3s ease-out;
+
+}
+.accordion-inside-show {
+display: grid;
+}
+.accordion-upside-show {
+  display: flex;
+}
+*/
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+}
+.faq-accordion-faq {
+  margin-top: 10px;
+}
+.faq-accordion-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  opacity: 1;
+  width: 327px;
+  height: 40px;
+  font-weight: 500;
+  border-bottom: #272727;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+.faq-accordion-inside {
+  display: none;
+  color: #FDFAF0;
+  background-color: #496141;
+  width: 327px;
+  height: 40px;
+  z-index: 100;
+  border-radius: 15px;
+}
+.faq-accordion-inside div {
+  padding-left: 16px;
+}
+.div-for-padding2 {
+  display: none;
+ 
+}
+.div-for-padding2-show {
+  display: block;
+  padding-bottom: 100px;
+}
+.rational {
+  padding-top: 120px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.rational1,.rational2,.rational3,.rational4 {
+  padding: 16px;
+  border-radius: 24px;
+  height: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 18px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.rational4 {
+  position: absolute;
+  display: none;
+  color: #6C3B0D;
+  background-color: #F2E0CF;
+  width: 320px;
+}
+.rational1 {
+  background-color: #D1D3B9;
+  color: #394B33;
+  transform: rotate(-19.41deg);
+  width: 268px;
+  position: absolute;
+  top: 38px;
+}
+.rational-ball1-img {
+  position: absolute;
+  left: 55px;
+  top: 119px;
+  width: 70px;
+  height: 70px;
+}
+.rational2 {
+  background-color: #DDCFBB;
+  color: #553829;
+  transform: rotate(2.2deg);
+  position: absolute;
+  top: 187px;
+  width: 320px;
+}
+.rational-ball2-img {
+  position: absolute;
+  right: 70px;
+  top: 287px;
+  width: 80px;
+  height: 80px;
+}
+.rational3 {
+  background-color: #F2E0CF;
+  color: #6C3B0D;
+  transform: rotate(-17.79deg);
+  position: absolute;
+  top: 340px;
+  width: 300px;
+
+}
+.rational-ball3-img {
+  position: absolute;
+  left: 30px;
+  top: 430px;
+  width: 70px;
+  height: 70px;
+}
+
+.ending {
+  margin-top: 500px;
+  height: 700px;
+}
+/*Code for ending boxes */
+.boxesEN {
+  --spacing: 5px;
+  display: grid;
+  grid-template-columns: 164px 164px;
+  height: 300px;
+  gap: var(--spacing);
+  padding-top: 30px;
+}
+.boxEND {
+  padding-top: 24px;
+  padding-left: 24px;
+}
+
+.boxesEN .boxEN,.boxesEN .boxEND {
+  position: relative;
+}
+.boxEN {
+  padding-top: 24px;
+}
+
+.boxesEN .boxEN::before, .boxesEN .boxEN::after,.boxesEN .boxEND::before,.boxesEN .boxEND::after {
+  pointer-events: none;
+  position: absolute;
+  content: "";
+}
+.boxesEN .boxEN::before {
+  inset: calc((var(--spacing) * -1) / 2) var(--spacing);
+  border-top: 1px solid currentColor;
+}
+.boxesEN .boxEN::after {
+  inset: var(--spacing) -2px;
+  border-right: 1px solid currentColor;
+}
+
+.boxesEN .boxEND::before {
+  inset: calc((var(--spacing) * -1) / 2) var(--spacing);
+  border-top: 1px solid currentColor;
+}
+
+.boxesEN .boxEND::after {
+  inset: var(--spacing) 0;
+  border-right: none
+}
+
+/*Code for ending borders ends*/
+
+
+.all-rights {
+  padding-top: 30px;
+  color: #858585;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.surnameEN {
+  color: #272727;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.messenger,.confident {
+  color: #272727;
+  font-weight: 500;
+  font-size: 12px;
+  width: 133px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.confident {
+  width: 156px;
+}
+.collab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+.collab a {
+  color: #858585;
+}
+.boxEN{
+  padding-top: 24px;
+  padding-right: 8px;
+
+}
+.boxEN div, .boxEND div {
+  padding-top: 20px;
+}
+.boxEND li {
+  padding-top: 5px;
+  color: #272727;
+  font-weight: 500;
+  font-size: 12px;
+}
+.serviceColorClass {
+  opacity: 1;
+  background-color: #496141;
+  border-radius: 15px;
+  color: #FDFAF0;
+}
+.serviceColorClass div {
+  border-color: #000000;
+}
+.eduColorClass {
+  opacity: 1;
+  background-color: #496141;
+  border-radius: 15px;
+  color: #FDFAF0;
+
+}
+
+.faq-accordion-js {
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  width: 327px;
+  height: 40px;
+  font-weight: 500;
+  border-bottom: #272727;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  padding-left: 10px;
+}
+
+
+
+.faq-panel {
+  display: none;
+  flex-direction: column;
+  color: #394B33;
+  background-color: #D1D3B9;
+  border-radius: 15px;
+  width: 314px;
+  padding-inline: 16px;
+  font-weight: 500;
+  padding-top: 16px;
+  padding-bottom: 20px;
+}
+.faq-inside-head {
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  font-weight: 500;
+}
+
+.eleven-block {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq-plus-button {
+  padding-top: 10px;
+}
+.div-for-padding {
+  display: none;
+  padding-bottom: 50px;
+  border-bottom-color: #272727;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+.seventh-block {
+  padding-bottom: 150px;
+
+}
+.horizontal-services1,.horizontal-services2,.horizontal-services3 {
+  position: absolute;
+  border: 1px solid;
+  border-top: none;
+  border-left: none;
+  border-right:none;
+  width: 311px;
+}
+.vertical-services1,.vertical-services2,.vertical-services3 {
+  position: absolute;
+  transform: rotate(90deg);
+  border: 1px solid;
+  border-top: none;
+  border-left: none;
+  border-right:none;
+  width: 263px;
+
+}
+.horizontal-services1 {
+
+  position: absolute;
+  top: -8px;
+}
+.vertical-services1 {
+  position: absolute;
+  right: -140.5px;
+  top: 131.5px;
+}
+
+.horizontal-services2 {
+  position: absolute;
+  bottom: -8px;
+ 
+}
+.vertical-services2 {
+  position: absolute;
+  left: -140.5px;
+  top: 131.5px;
+}
+.horizontal-services3 {
+
+position: absolute;
+top: -8px;
+}
+.vertical-services3 {
+  position: absolute;
+  top: 131.5px;
+  right: -140.5px;
+}
+
+
+a {
+  text-decoration: none;
+  color: #272727;
+}
+.span1 {
+  text-decoration: underline;
+}
+
+@media only screen and (min-width: 1440px) {
+  header, .first-block, .second-block, .third-block,.forth-block,.fifth-block,.sixth-block,.seventh-block,.eight-block,.nine-block, .ending {
+      padding-left: 72px;
+      padding-right: 72px;
+    }
+    header {
+      padding-top: 52px;
+    }
+    .first-block {
+      width: auto;
+      height: auto;
+    }
+    .navbar-button {
+      width: 195px;
+      height: 60px;
+    }
+    .h1-mobile {
+      display: none;
+    }
+    .h1-desktop {
+      display: block;
+      font-size: 80px;
+      width: 1040px;
+      height: 184px;
+      font-weight: 700;
+      line-height: 92px;
+      padding-top: 74px;
+      text-align: center;
+    }
+    .underh1 {
+      margin-top: 24px;
+      font-size: 16px;
+      width: 614px;
+      height: 22px;
+    }
+    .navbar-book-in {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .animation-ideas {
+      width: 900px;
+      height: 500px;
+    }
+    .idea {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 20px;
+      font-style: normal;
+    }
+    .alone {
+      width: 125px;
+      height: 52px;
+      top: 60px;
+      left: 300px;
+      transform: rotate(-28.79deg);
+    }
+    .ball11 {
+      display: none;
+    }
+    .ideal {
+      width: 326px;
+      top: 130px;
+      left: 170px;
+      transform: rotate(-8deg);
+      color: #394B33;
+      background-color: #D1D3B9;
+
+    }
+    .ball22 {
+      display: none;
+
+    }
+    .looser {
+      width: 366px;
+      transform: rotate(14.34deg);
+      top: 290px;
+      left: 550px;
+
+    }
+    .ball33 {
+      left: 300px;
+      top: 180px;
+    }
+    .unloved {
+      width: 210px;
+      left: 420px;
+      top: 70px;
+      background-color: #DDCFBB;
+      color: #553829;
+
+      transform: rotate(15.89deg);
+    }
+    .ball44 {
+      left: 500px;
+      top: 287px;
+    }
+    .unhappy {
+      width: 385px;
+      transform: rotate(20deg);
+      top: 250px;
+      left: 120px;
+
+    }
+    .ball55 {
+      left: 120px;
+      top: 250px;
+    }
+    .ball66,.ball77,.follow,.bye {
+  display: flex;
+    }
+    .bye {
+    left: 400px;
+    top: 150px;
+    }
+    .ball66 {
+      top: 60px;
+      left: 630px;
+    }
+    .follow {
+      top: 230px;
+      left: 750px;
+    }
+    .ball77 {
+      top: 220px;
+      left: 750px;
+    }
+    .h2andphoto {
+      width: 1296px ;
+    }
+    .h2-mobile {
+      display: none;
+    }
+    .h2-desktop {
+      display: flex;
+      color: #272727;
+    text-align: center;
+    font-family: Onest;
+    font-size: 55px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 72px; /* 130.909% */
+    letter-spacing: -0.55px;
+    }
+    .h2-desktop1 {
+      width: 1056px;
+      height: 72px;
+    }
+    .h2-desktop2 {
+      width: 1300px;
+      height: 72px;
+    }
+    .h2-desktop3 {
+      width: 950px;
+      height: 72px;
+    }
+    .underh2text-mobile {
+      display: none;
+    }
+    .underh2text-desktop {
+      display: block;
+      padding-top: 56px;
+      width: 539px;
+      height: 88px;
+      gap: 16px;
+      text-align: center;
+      line-height: 22px;
+    }
+    .third-block {
+      height: 600px;
+    }
+    .boxes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 56px;
+    }
+    .box {
+      width: 616px;
+      height: 166px;
+   
+    }
+    .edu-heading {
+      padding-top: 190px;
+    }
+    .edu-work {
+      font-size: 55px;
+    }
+    .edutype,.almamater {
+      width: 351px;
+    }
+    .box br {
+      display: none;
+    }
+    .horizontal-edu-top,.horizontal-edu-bottom,.vertical-edu-left,.vertical-edu-right {
+  display: none;
+}
+.vertical-edu-desktop-top {
+  position: absolute;
+  display: flex;
+  right: -4px;
+  top: 0px;
+
+}
+.horizontal-edu-desktop-top {
+  position: absolute;
+  display: flex;
+  top: -4px;
+  left: 2px;
+}
+.princeps-heading {
+  width: 650px;
+  padding-top: 192px;
+  justify-content: flex-start;
+  align-items: center;
+  
+}
+.princeps-work {
+  font-size: 55px;
+}
+.princeps-ball {
+  position: static;
+  padding-left: 20px;
+}
+.princeps-heading br {
+  display: none;
+}
+
+    .symptoms-work br {
+      display: none;
+    }
+    .symptoms-boxes-noborder {
+      display: grid;
+      grid-template-columns: 310px 310px 310px 310px;
+    }
+    .mob {
+      display: flex;
+    }
+    .edutype-symptoms {
+      font-size: 20px;
+    }
+
+    .fifth-block {
+      height: 800px;
+    }
+    .symptoms-heading {
+      width: 1100px;
+      justify-content: center;
+      align-items: center;
+      font-size: 55px;
+      height: 68px;
+      gap: 20px;
+    }
+    .symptoms-ball {
+    position: static;
+    }
+
+
+
+    .sixth-block {
+      padding-top: 180px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-content: normal;
+      align-items: normal;
+      height: 900px;
+    }
+    .session-heading {
+      padding-top: 0;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    .session-work br {
+      display: none;
+    }
+    .session-work {
+      font-size: 55px;
+      width: 453px;
+      height: 136px;
+      line-height: 68px;
+    }
+    .session-ball {
+      position: relative;
+      top: 10px;
+      right: 0px;
+    }
+    
+    .services-heading {
+      width: 350px;
+      padding-bottom: 54px;
+      padding-top: 190px;
+      
+    }
+    .services-work {
+      font-size: 55px;
+      width: 350px;
+    }
+    .boxesS {
+      padding-top: 0;
+      width: 690px;
+      height: 850px;
+    }
+    .boxS,.boxSLast {
+      width: 651px;
+      height: 140px;
+      padding-left: 32px;
+      padding-bottom: 32px;
+      gap: 16px;
+    }
+    .boxS br {
+      display: none;
+    }
+    .boxSLast br {
+      display: none;
+    }
+    .edutype-session {
+      font-size: 20px;
+    }
+    .almamater4 {
+      width: 651px;
+    }
+    
+    .edutype3 {
+      font-size: 20px;
+      padding-left: 0;
+    }
+    .almamater3 {
+      font-size: 35px;
+      padding-left: 0;
+    }
+    .service-description-about {
+      font-size: 16px;
+      padding-left: 0;
+    }
+    .service-description-duration {
+      padding-left: 0;
+    }
+    .boxesSE {
+      flex-direction: row;
+      width: 1300px;
+    }
+    .boxSE,.boxSE2,.boxSE3 {
+      width: 392px;
+      height: 293px;
+      padding-left: 24px;
+    }
+
+ 
+
+
+
+  
+    .seventh-block {
+      height: 500px;
+    }
+    .horizontal-services1,.horizontal-services2,.horizontal-services3 {
+  width: 416px;
+  left: 0px
+}
+.vertical-services1,.vertical-services2,.vertical-services3 {
+  width: 293px;
+  left: 278px;
+  top: 146.5px;
+}
+.horizontal-services1 {
+  top: -8px;
+}
+.horizontal-services2 {
+  bottom: -8px;
+ 
+}
+
+.review-accordion {
+      display: grid;
+      grid-template-columns: 640px 640px;
+      column-gap: 24px;
+    }
+  .review-heading {
+    width: 360px;
+    padding-top: 200px;
+  }
+
+  .review-work {
+    font-size: 55px;
+  }
+  .review-ball {
+    padding-left: 40px;
+  }
+  .accordion-heading {
+    width: 636px;
+  }
+  .accordion-inside {
+    grid-template-rows: 250px 40px;
+  }
+  .inside-show {
+    max-width: 636px;
+    max-height: 400px;
+ 
+  }
+  .upside-show {
+    max-width: 636px;
+    max-height: 40px;
+   
+  }
+  .faq-work-mobile {
+    display: none;
+  }
+  .faq-work-desktop {
+    display: flex;
+    width: 1000px;
+    font-size: 55px;
+  }
+  .faq-heading {
+    padding-top: 190px;
+  }
+  .faq-ball {
+    top: 0;
+  }
+
+  .faq-accordion {
+    padding-top: 62px;
+      display: grid;
+      grid-template-columns: 636px 636px;
+      column-gap: 24px;
+    }
+    .faq-accordion-js {
+      width: 636px;
+      padding-left: 0;
+      padding-bottom: 22px;
+    }
+    .faq-accordion-js br {
+      display: none;
+    }
+    .faq-panel {
+      width: 636px;
+    }
+    
+    .get-in-touch {
+      font-size: 188px;
+      padding-top: 32px;
+    }
+
+    .ten-block {
+      display: grid;
+      grid-template-columns: 550px 700px;
+      margin-top: 20px;
+    }
+    .super-whole-contact {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    .whole-contact {
+      display: grid;
+      grid-template-columns: 255px 255px;
+      column-gap: 16px;
+    }
+    input {
+      width: 225px;
+    }
+    select {
+      width: 255px;
+      height: 48px;
+    }
+    .contact-input {
+      width: 255px;
+    }
+    textarea {
+      width: 510px;
+    }
+    .checkbox-comment br {
+      display: none;
+    }
+    .book-in {
+      margin-left: 0;
+      margin-top: 33px;
+    }
+    .rational {
+      padding-top: 0;
+      height: 500px;
+    }
+    .rational br {
+      display: none;
+    }
+    .rational1 {
+      top: 200px;
+      left: 70px;
+      transform: rotate(-16.55deg);
+      width: 362px;
+      height: 53px;
+    }
+    .rational-ball1-img {
+      top: 220px;
+      left: 470px;
+    }
+    .rational2 {
+      top: 300px;
+      left: 330px;
+      transform: rotate(9deg);
+      width: 328px;
+      height: 74px;
+    }
+    .rational-ball2-img {
+      top: 310px;
+      left: 160px;
+     
+    }
+    .rational3 {
+      top: 400px;
+      left: 100px;
+      transform: rotate(0deg);
+      width: 345px;
+      height: 54px;
+    }
+    .rational-ball3-img {
+      left: 500px;
+      top: 410px;
+    }
+    .rational4 {
+      display: flex;
+      top: 160px;
+      left: 410px;
+      transform: rotate(39deg);
+      width: 288px;
+      height: 54px;
+    }
+}
+</style>
 </head>
+
 <body>
   <div class="preloader">
     <div class="loader"></div>
@@ -38,7 +2061,8 @@
         </button>
       </div>
       <div class="navbar-button"  onclick="Navbar()" >
-        <img class="navbar-icon" src="ic_round-menu.svg" id="navbar-icon" alt="Click me">
+        <img class="navbar-icon" src="/ic_round-menu.svg" id="navbar-icon" alt="Click me">
+        <a href="https://n819238.yclients.com/" target="_blank" title="Ссылка на YClients" style="color: #F7F5EF"><div class="navbar-book-in" id="navbar-book-in">Записаться</div></a>
         <div class="navbar-x" id="navbar-x">&#10005;</div>
 
     </div>
@@ -47,32 +2071,63 @@
 
 
   <div class="first-block">
-    <h1>С ЛЮБЫМИ<br>МЫСЛЯМИ МОЖНО<br>БОРОТЬСЯ</h1>
+    <h1 class="h1-mobile">С ЛЮБЫМИ<br>МЫСЛЯМИ МОЖНО<br>БОРОТЬСЯ</h1>
+    <h1 class="h1-desktop">С ЛЮБЫМИ МЫСЛЯМИ МОЖНО БОРОТЬСЯ</h1>
     <div class="underh1">(ведь мысли — это просто мысли, и мы<br>можем ими управлять)</div>
  
   <div class="animation-ideas">
     <div class="alone idea" id="alone">Я одинок.</div>
-    <div class="ball1"><img class="ball11" src="Star 10.svg" alt="Star for style 1"></div>
+    <div class="ball1"><svg class="ball11" xmlns="http://www.w3.org/2000/svg" width="47" height="47" viewBox="0 0 47 47" fill="none">
+      <path d="M4.09167 13.7863C2.08807 12.041 4.15454 8.85383 6.56549 9.97082C8.50732 10.8705 10.5157 8.85908 9.61326 6.91858C8.49274 4.50927 11.6769 2.43813 13.4251 4.43916C14.8331 6.05083 17.486 5.03025 17.4508 2.89044C17.4071 0.233675 21.1584 -0.363294 21.9416 2.1758C22.5724 4.22083 25.411 4.36751 26.2492 2.39838C27.2899 -0.0464682 30.9597 0.933964 30.6424 3.57208C30.3868 5.69687 32.9204 6.98544 34.4871 5.52748C36.4322 3.71729 39.3859 6.10559 38.023 8.38658C36.9254 10.2237 38.7158 12.4314 40.74 11.7367C43.2532 10.8742 44.9802 14.2574 42.8074 15.7868C41.0573 17.0187 41.795 19.7637 43.9268 19.9524C46.5736 20.1866 46.7752 23.9798 44.1681 24.4932C42.0684 24.9068 41.6258 27.7146 43.4965 28.754C45.8192 30.0445 44.4605 33.5917 41.87 33.0004C39.7836 32.5242 38.2372 34.9092 39.5234 36.6196C41.1204 38.7433 38.4364 41.4312 36.3104 39.8374C34.598 38.5537 32.2153 40.1035 32.6946 42.1893C33.2897 44.7789 29.7445 46.1428 28.4506 43.822C27.4084 41.9528 24.6013 42.3995 24.1908 44.4999C23.6812 47.1077 19.8878 46.9116 19.6496 44.2652C19.4578 42.1337 16.7117 41.4001 15.4824 43.1519C13.9562 45.3269 10.5704 43.6049 11.4293 41.0904C12.121 39.0652 9.91071 37.278 8.07517 38.3784C5.79619 39.7446 3.40355 36.7944 5.21089 34.8466C6.66655 33.2778 5.37426 30.7462 3.24985 31.0048C0.612201 31.326 -0.373613 27.6577 2.0697 26.6134C4.0376 25.7723 3.88676 22.9339 1.8408 22.3061C-0.699434 21.5267 -0.107973 17.7745 2.54886 17.8143C4.68872 17.8463 5.7054 15.192 4.09167 13.7863Z" fill="#F48012"/>
+    </svg></div>
+    
     <div class="ideal idea">Я должен выполнить это идеально.</div>
-    <div class="ball2"><img class="ball22" src="Star 20.svg" alt="Star for style 2"></div>
+    <div class="ball2"><svg class="ball22" xmlns="http://www.w3.org/2000/svg" width="58" height="56" viewBox="0 0 58 56" fill="none">
+      <path d="M24.5802 53.2175C22.2218 57.2608 16.0154 55.1814 16.5689 50.5334C16.9637 47.2175 13.6038 44.7292 10.5472 46.0739C6.26259 47.9587 2.46378 42.6285 5.64357 39.1935C7.91205 36.743 6.6564 32.755 3.39315 32.0462C-1.18103 31.0526 -1.12133 24.5075 3.47023 23.5976C6.74586 22.9484 8.07407 18.9841 5.85068 16.4925C2.73408 13.0001 6.62951 7.74008 10.879 9.70276C13.9106 11.103 17.3154 8.67641 16.9811 5.35384C16.5125 0.696509 22.7557 -1.26925 25.04 2.81639C26.6696 5.7311 30.8504 5.76924 32.5329 2.88474C34.8914 -1.15853 41.0977 0.920798 40.5442 5.56881C40.1494 8.88473 43.5093 11.373 46.5659 10.0283C50.8505 8.14351 54.6493 13.4737 51.4695 16.9087C49.2011 19.3593 50.4567 23.3472 53.72 24.056C58.2941 25.0496 58.2344 31.5947 53.6429 32.5046C50.3672 33.1538 49.039 37.1182 51.2624 39.6097C54.379 43.1021 50.4836 48.3621 46.2341 46.3995C43.2025 44.9993 39.7978 47.4258 40.132 50.7484C40.6006 55.4057 34.3574 57.3715 32.0731 53.2858C30.4435 50.3711 26.2627 50.333 24.5802 53.2175Z" fill="#496141"/>
+    </svg></div>
     <div class="looser idea">Если не выполню задачу — я неудачник.</div>
-    <div class="ball3"><img class="ball33" src="Star 11.svg" alt="Star for style 2"></div>
+    <div class="ball3"><svg class="ball33" xmlns="http://www.w3.org/2000/svg" width="59" height="58" viewBox="0 0 59 58" fill="none">
+      <path d="M48.6234 47.3648C50.4046 50.4517 46.4374 53.6218 43.8195 51.2035C41.7456 49.2877 38.3977 50.904 38.608 53.7195C38.8734 57.2736 33.9237 58.4085 32.6142 55.0937C31.577 52.4679 27.8593 52.4715 26.8272 55.0994C25.5243 58.4167 20.5723 57.2916 20.8308 53.737C21.0355 50.9211 17.6844 49.3114 15.6143 51.2312C13.0011 53.6547 9.02774 50.4924 10.8029 47.402C12.2091 44.9537 9.88836 42.0495 7.19025 42.881C3.78436 43.9306 1.57651 39.3575 4.51675 37.3433C6.84598 35.7477 6.01516 32.1241 3.22346 31.7026C-0.300573 31.1706 -0.305562 26.0924 3.21741 25.5534C6.00828 25.1264 6.83197 21.5011 4.49961 19.9101C1.55543 17.9017 3.75427 13.3243 7.16222 14.3672C9.86196 15.1935 12.177 12.2846 10.766 9.83917C8.98474 6.75225 12.9519 3.58215 15.5698 6.00046C17.6437 7.91624 20.9916 6.29992 20.7814 3.48442C20.5159 -0.0696494 25.4657 -1.20452 26.7751 2.11019C27.8124 4.73607 31.53 4.73242 32.5621 2.1045C33.865 -1.21278 38.817 -0.0876483 38.5585 3.46693C38.3538 6.28284 41.7049 7.89258 43.775 5.97273C46.3882 3.54927 50.3616 6.71156 48.5864 9.80199C47.1802 12.2502 49.501 15.1545 52.1991 14.323C55.605 13.2733 57.8128 17.8464 54.8726 19.8606C52.5433 21.4562 53.3742 25.0798 56.1659 25.5013C59.6899 26.0334 59.6949 31.1116 56.1719 31.6506C53.381 32.0775 52.5573 35.7028 54.8897 37.2938C57.8339 39.3022 55.635 43.8796 52.2271 42.8367C49.5274 42.0105 47.2123 44.9193 48.6234 47.3648Z" fill="#806044"/>
+    </svg></div>
     <div class="unloved idea">Я не достоин любви.</div>
-    <div class="ball4"><img class="ball44" src="Star 13.svg" alt="Ball for style 1"></div>
+    <div class="ball4"><svg class="ball44" xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 74 74" fill="none">
+      <path d="M69.9652 47.7214C72.4633 48.9922 70.9482 52.7785 68.2631 51.9751C65.9114 51.2716 64.2406 54.2478 66.0659 55.8891C68.15 57.763 65.7065 61.0282 63.3208 59.5573C61.2314 58.269 58.8472 60.7114 60.1855 62.7692C61.7136 65.1187 58.5083 67.6402 56.5846 65.6019C54.8998 63.8168 51.9647 65.5589 52.7248 67.8929C53.5927 70.5579 49.844 72.1639 48.5134 69.6972C47.348 67.5368 44.0621 68.4599 44.1922 70.9111C44.3408 73.7099 40.3042 74.2909 39.6573 71.5639C39.0908 69.1755 35.6779 69.2166 35.1692 71.618C34.5883 74.3599 30.5388 73.8764 30.6199 71.0748C30.6908 68.6212 27.3835 67.7776 26.2706 69.9655C24.9999 72.4636 21.2136 70.9485 22.0169 68.2634C22.7205 65.9117 19.7442 64.2409 18.103 66.0662C16.229 68.1503 12.9638 65.7069 14.4348 63.3212C15.723 61.2317 13.2806 58.8475 11.2229 60.1859C8.87335 61.7139 6.35183 58.5086 8.3901 56.5849C10.1753 54.9001 8.43314 51.965 6.09913 52.7251C3.43418 53.593 1.82817 49.8444 4.29489 48.5137C6.45528 47.3484 5.53217 44.0624 3.08096 44.1925C0.282188 44.3411 -0.298856 40.3045 2.42819 39.6577C4.81659 39.0911 4.77541 35.6782 2.37404 35.1695C-0.367819 34.5886 0.115678 30.5392 2.91722 30.6202C5.37085 30.6912 6.21441 27.3839 4.02653 26.271C1.52844 25.0003 3.04353 21.2139 5.72864 22.0173C8.08031 22.7208 9.75112 19.7446 7.92583 18.1033C5.84174 16.2294 8.28519 12.9642 10.6709 14.4351C12.7603 15.7234 15.1445 13.281 13.8062 11.2232C12.2781 8.8737 15.4834 6.35218 17.4071 8.39045C19.0919 10.1756 22.027 8.43349 21.2669 6.09948C20.399 3.43453 24.1477 1.82852 25.4783 4.29523C26.6437 6.45563 29.9297 5.53252 29.7995 3.0813C29.6509 0.282535 33.6876 -0.298514 34.3344 2.42853C34.9009 4.81693 38.3138 4.77576 38.8226 2.37439C39.4034 -0.367471 43.4529 0.116025 43.3718 2.91756C43.3009 5.3712 46.6082 6.21476 47.7211 4.02688C48.9918 1.52878 52.7781 3.04388 51.9748 5.72899C51.2712 8.08066 54.2475 9.75147 55.8887 7.92618C57.7627 5.84209 61.0279 8.28553 59.5569 10.6712C58.2687 12.7607 60.7111 15.1449 62.7688 13.8065C65.1184 12.2785 67.6399 15.4838 65.6016 17.4075C63.8164 19.0923 65.5586 22.0274 67.8926 21.2673C70.5575 20.3994 72.1635 24.148 69.6968 25.4787C67.5364 26.644 68.4595 29.93 70.9107 29.7999C73.7095 29.6513 74.2906 33.6879 71.5635 34.3347C69.1751 34.9013 69.2163 38.3142 71.6177 38.8229C74.3595 39.4038 73.876 43.4532 71.0745 43.3722C68.6209 43.3012 67.7773 46.6085 69.9652 47.7214Z" fill="#496141"/>
+    </svg></div>
     <div class="unhappy idea">Я не могу быть счастливой, если не любят.</div>
-    <div class="ball5"><img class="ball55" src="Star 16.svg" alt="Ball for style 2"></div>
+    <div class="ball5"><svg class="ball55" xmlns="http://www.w3.org/2000/svg" width="69" height="69" viewBox="0 0 69 69" fill="none">
+      <path d="M31.367 3.41805C31.8561 -0.237617 37.1439 -0.237619 37.633 3.41804C38.0326 6.40484 41.9879 7.1916 43.5001 4.58508C45.3509 1.39484 50.2362 3.4184 49.289 6.98295C48.5152 9.89531 51.8684 12.1358 54.2629 10.3064C57.1937 8.06727 60.9327 11.8063 58.6936 14.7371C56.8642 17.1316 59.1047 20.4848 62.0171 19.711C65.5816 18.7638 67.6052 23.6491 64.4149 25.4999C61.8084 27.0121 62.5952 30.9674 65.582 31.367C69.2376 31.8561 69.2376 37.1439 65.582 37.633C62.5952 38.0326 61.8084 41.9879 64.4149 43.5001C67.6052 45.3509 65.5816 50.2362 62.0171 49.289C59.1047 48.5152 56.8642 51.8684 58.6936 54.2629C60.9327 57.1937 57.1937 60.9327 54.2629 58.6936C51.8684 56.8642 48.5152 59.1047 49.289 62.0171C50.2362 65.5816 45.3509 67.6052 43.5001 64.4149C41.9879 61.8084 38.0326 62.5952 37.633 65.582C37.1439 69.2376 31.8561 69.2376 31.367 65.582C30.9674 62.5952 27.0121 61.8084 25.4999 64.4149C23.6491 67.6052 18.7638 65.5816 19.711 62.0171C20.4848 59.1047 17.1316 56.8642 14.7371 58.6936C11.8063 60.9327 8.06727 57.1937 10.3064 54.2629C12.1358 51.8684 9.89531 48.5152 6.98295 49.289C3.4184 50.2362 1.39484 45.3509 4.58508 43.5001C7.1916 41.9879 6.40484 38.0326 3.41805 37.633C-0.237617 37.1439 -0.237619 31.8561 3.41804 31.367C6.40484 30.9674 7.1916 27.0121 4.58508 25.4999C1.39484 23.6491 3.4184 18.7638 6.98295 19.711C9.89531 20.4848 12.1358 17.1316 10.3064 14.7371C8.06727 11.8063 11.8063 8.06727 14.7371 10.3064C17.1316 12.1358 20.4848 9.89531 19.711 6.98295C18.7638 3.4184 23.6491 1.39484 25.4999 4.58508C27.0121 7.1916 30.9674 6.40484 31.367 3.41805Z" fill="#F48012"/>
+    </svg></div>
+    <div class="bye idea">Если не понравлюсь, то от меня откажутся...</div>
+    <div class="ball6"><svg class="ball66" xmlns="http://www.w3.org/2000/svg" width="61" height="62" viewBox="0 0 61 62" fill="none">
+      <path d="M5.37185 17.0336C3.2498 15.3084 5.40179 11.9893 7.84272 13.2226C9.92272 14.2736 12.0562 11.9006 10.7907 9.9437C9.30566 7.64724 12.378 5.15559 14.3183 7.08284C15.9718 8.72512 18.7341 7.12755 18.1353 4.87537C17.4326 2.23238 21.1245 0.812085 22.3743 3.24461C23.4393 5.31745 26.5602 4.65169 26.6866 2.32469C26.835 -0.406098 30.7851 -0.616023 31.222 2.08366C31.5944 4.38415 34.7682 4.71539 35.6076 2.54134C36.5925 -0.00994094 40.4142 1.01106 39.9955 3.71364C39.6388 6.01661 42.5549 7.3124 44.025 5.50413C45.7501 3.38208 49.0692 5.53407 47.8359 7.975C46.7849 10.055 49.1579 12.1885 51.1148 10.923C53.4113 9.43794 55.903 12.5103 53.9757 14.4506C52.3334 16.104 53.931 18.8664 56.1832 18.2676C58.8262 17.5648 60.2465 21.2567 57.8139 22.5066C55.7411 23.5716 56.4068 26.6924 58.7339 26.8189C61.4646 26.9673 61.6746 30.9174 58.9749 31.3543C56.6744 31.7267 56.3432 34.9005 58.5172 35.7399C61.0685 36.7248 60.0475 40.5465 57.3449 40.1278C55.0419 39.771 53.7461 42.6872 55.5544 44.1572C57.6765 45.8824 55.5245 49.2015 53.0835 47.9682C51.0035 46.9172 48.87 49.2902 50.1355 51.2471C51.6206 53.5436 48.5483 56.0352 46.6079 54.108C44.9545 52.4657 42.1921 54.0633 42.791 56.3155C43.4937 58.9584 39.8018 60.3787 38.552 57.9462C37.487 55.8734 34.3661 56.5391 34.2397 58.8661C34.0913 61.5969 30.1412 61.8068 29.7042 59.1072C29.3319 56.8067 26.158 56.4754 25.3187 58.6495C24.3337 61.2008 20.5121 60.1798 20.9307 57.4772C21.2875 55.1742 18.3714 53.8784 16.9013 55.6867C15.1761 57.8087 11.857 55.6568 13.0904 53.2158C14.1413 51.1358 11.7683 49.0023 9.81142 50.2678C7.51496 51.7529 5.02331 48.6806 6.95056 46.7402C8.59284 45.0868 6.99527 42.3244 4.74309 42.9232C2.1001 43.626 0.679803 39.9341 3.11233 38.6843C5.18516 37.6192 4.51941 34.4984 2.19241 34.3719C-0.53838 34.2236 -0.748303 30.2735 1.95138 29.8365C4.25187 29.4641 4.58311 26.2903 2.40907 25.451C-0.142222 24.466 0.878782 20.6444 3.58136 21.063C5.88432 21.4198 7.18012 18.5036 5.37185 17.0336Z" fill="#496141"/>
+    </svg></div>
+    <div class="follow idea">Я <span class="span1">должен</span> следовать правилам.</div>
+    <div class="ball7"><svg class="ball77" xmlns="http://www.w3.org/2000/svg" width="82" height="80" viewBox="0 0 82 80" fill="none">
+      <path d="M35.3318 75.8958C31.9602 81.676 23.0877 78.7034 23.8789 72.0586C24.4434 67.3182 19.6401 63.7611 15.2703 65.6833C9.14507 68.3779 3.71433 60.7579 8.26013 55.8472C11.5031 52.3439 9.70805 46.6428 5.04294 45.6295C-1.49628 44.2091 -1.41092 34.8522 5.15313 33.5514C9.83595 32.6234 11.7347 26.9559 8.5562 23.3941C4.10075 18.4013 9.66961 10.8816 15.7447 13.6874C20.0786 15.6892 24.946 12.2202 24.4681 7.47027C23.7983 0.812168 32.7235 -1.99806 35.9891 3.84273C38.3188 8.00958 44.2956 8.06412 46.7009 3.94046C50.0725 -1.83979 58.945 1.13281 58.1538 7.77758C57.5894 12.518 62.3926 16.0752 66.7624 14.1529C72.8876 11.4584 78.3184 19.0784 73.7726 23.989C70.5296 27.4923 72.3247 33.1934 76.9898 34.2068C83.529 35.6272 83.4436 44.984 76.8796 46.2848C72.1968 47.2129 70.298 52.8803 73.4765 56.4422C77.932 61.435 72.3631 68.9546 66.2881 66.1488C61.9541 64.1471 57.0867 67.616 57.5646 72.366C58.2344 79.0241 49.3092 81.8343 46.0436 75.9935C43.7139 71.8266 37.7371 71.7721 35.3318 75.8958Z" fill="#F48012"/>
+    </svg></div>
   </div> 
 </div> <!-- First Block end -->
 
 
   <div class="second-block" id="second-block"> <!-- Second Block Starts here -->
-    <div class="h2andphoto"><h2>ПУТЬ, КОТОРЫЙ<br>ВЫ ХОТИТЕ ПРОЙТИ,<br>МОЖЕТ БЫТЬ<br>НЕПРОСТЫМ,<br>НО СО МНОЙ ЕГО<br>МОЖНО ПРОЙТИ<br>С КОМФОРТОМ</h2>
-      <img class="h2photo" src="myProPhoto.png" alt="My beautiful photo">
-    </div>
-    <div class="underh2text">
+    <div class="h2andphoto">
+      <h2 class="h2-mobile">ПУТЬ, КОТОРЫЙ<br>ВЫ ХОТИТЕ ПРОЙТИ,<br>МОЖЕТ БЫТЬ<br>НЕПРОСТЫМ,<br>НО СО МНОЙ ЕГО<br>МОЖНО ПРОЙТИ<br>С КОМФОРТОМ</h2>
+      <div class="h2-desktop">
+        <div class="h2-desktop1">ПУТЬ, КОТОРЫЙ ВЫ ХОТИТЕ ПРОЙТИ,</div>
+        <div class="h2-desktop2">МОЖЕТ БЫТЬ НЕПРОСТЫМ, НО СО МНОЙ ЕГО</div>
+        <div class="h2-desktop3">МОЖНО ПРОЙТИ С КОМФОРТОМ</div>
+      </div>
+      <img class="h2photo" src="/myProPhoto.png" alt="My beautiful photo">
+    
+    <div class="underh2text-mobile">
       <div>Меня зовут Андрей Сливка.<br> <b>Я — психиатр, психотерапевт<br>и психолог.</b> Последние 5 лет активно<br>консультирую и оказываю поддержку<br>людям в трудных периодах жизни,<br>помогаю принять себя и позволить себе жить полной жизнью.</div>
       <div>Преимущественно работаю<br>в когнитивно-поведенческом<br>направлении, но не являюсь заложником<br>метода. Давайте вместе разберемся, как<br>вам помочь.</div>
     </div>
+    <div class="underh2text-desktop">
+      <div>Меня зовут Андрей Сливка. Я — психиатр, психотерапевт и психолог.</b> Последние 5 лет активно консультирую и оказываю поддержку людям в трудных периодах жизни, помогаю принять себя и позволить себе жить полной жизнью.</div>
+      <div>Преимущественно работаю в когнитивно-поведенческом направлении, но не являюсь заложником метода. Давайте вместе разберемся, как вам помочь.</div>
+    </div>
+  </div>
   </div> <!-- Second Block end -->
 
 
@@ -80,37 +2135,57 @@
 
   <div class="edu-heading">
     <img class="edu-ball" alt="beautiful star" src="/Star 38.svg">
-    <h2 class="h2-edu">ОБРАЗОВАНИЕ</h2>
+    <h2 class="edu-work">ОБРАЗОВАНИЕ</h2>
   </div>
   
-    <div class="edustep1">
+ 
       <div class="boxes">
         <div class="box">
+          
+          <img class="vertical-edu-left" src="edu-vertical.svg">
+          <img class="horizontal-edu-bottom" src="edu-horizontal.svg">
+          <img class="vertical-edu-right" src="edu-vertical.svg">
+          
+          <img class="vertical-edu-desktop-top" src="edu-desktop-vertical.svg">
           <div class="stepnumber">step 1</div>
-          <div class="edutype">БАЗОВОЕ МЕДИЦИНСКОЕ<br>ОБРАЗОВАНИЕ</div>
+          <div class="edutype">БАЗОВОЕ МЕДИЦИНСКОЕ <br>ОБРАЗОВАНИЕ</div>
           <div class="almamater">ПСПБГМУ им. Павлова (Санкт-<br>Петербург)</div>
-          <div><img class="edu-button" src="edu-button.png" alt="Click here to see diploma"></div>
+          <div><img class="edu-button" src="/edu-button.png" alt="Click here to see diploma"></div>
         </div>
         <div class="box">
+          <img class="vertical-edu-left" src="edu-vertical.svg">
+          <img class="horizontal-edu-bottom" src="edu-horizontal.svg">
+          <img class="vertical-edu-right" src="edu-vertical.svg">
           <div class="stepnumber">step 2</div>
-          <div class="edutype">ОРДИНАТУРА<br> ПО СПЕЦИАЛЬНОСТИ<br>&#171;ПСИХИАТРИЯ&#187;</div>
+          <div class="edutype">ОРДИНАТУРА<br> ПО СПЕЦИАЛЬНОСТИ <br>
+            &#171;ПСИХИАТРИЯ&#187;</div>
           <div class="almamater">НМИЦ им. Бехтерева (Санкт-<br>Петербург)</div>
-          <div><img class="edu-button" src="edu-button.png" alt="Click here to see diploma"></div>
+          <div><img class="edu-button" src="/edu-button.png" alt="Click here to see diploma"></div>
         </div>
         <div class="box">
+       
+          <img class="vertical-edu-left" src="edu-vertical.svg">
+          <img class="horizontal-edu-bottom" src="edu-horizontal.svg">
+          <img class="vertical-edu-right" src="edu-vertical.svg">
+          <img class="vertical-edu-desktop-top" src="edu-desktop-vertical.svg">
+          <img class="horizontal-edu-desktop-top" src="edu-desktop-horizontal.svg">
           <div class="stepnumber">step 3</div>
-          <div class="edutype">ПЕРЕПОДГОТОВКА<br>ПО СПЕЦИАЛЬНОСТИ<br>&#171;ПСИХОТЕРАПИЯ&#187;</div>
-          <div class="almamater">ИПМП им. Карвасарского<br>(Санкт-Петербург)</div>
-          <div><img class="edu-button" src="edu-button.png" alt="Click here to see diploma"></div>
+          <div class="edutype">ПЕРЕПОДГОТОВКА <br>ПО СПЕЦИАЛЬНОСТИ <br>&#171;ПСИХОТЕРАПИЯ&#187;</div>
+          <div class="almamater">ИПМП им. Карвасарского<br> (Санкт-Петербург)</div>
+          <div><img class="edu-button" src="/edu-button.png" alt="Click here to see diploma"></div>
         </div>
-        <div class="boxLast">
+        <div class="box">
+          <img class="vertical-edu-left" src="edu-vertical.svg">
+          <img class="vertical-edu-right" src="edu-vertical.svg">
+          <img class="horizontal-edu-desktop-top" src="edu-desktop-horizontal.svg">
+          
           <div class="stepnumber">step 4</div>
-          <div class="edutype">ПЕРЕПОДГОТОВКА<br>ПО СПЕЦИАЛЬНОСТИ<br>&#171;ПСИХОЛОГИЯ&#187;</div>
-          <div class="almamater">АНО ДПО &#171;НАДПО&#187;<br>(Санкт-Петербург)</div>
-          <div><img class="edu-button" src="edu-button.png" alt="Click here to see diploma"></div>
+          <div class="edutype">ПЕРЕПОДГОТОВКА <br>ПО СПЕЦИАЛЬНОСТИ <br>&#171;ПСИХОЛОГИЯ&#187;</div>
+          <div class="almamater">АНО ДПО &#171;НАДПО&#187; <br>(Санкт-Петербург)</div>
+          <div><img class="edu-button" src="/edu-button.png" alt="Click here to see diploma"></div>
         </div>
       </div>
-    </div>
+  
   
 
 
@@ -119,8 +2194,8 @@
 <div class="forth-block" id="forth-block"> <!-- Forth Block starts WORK VALUES -->
 
   <div class="princeps-heading">
-    <div class="princeps-work">ПРИНЦИПЫ<br>РАБОТЫ</div>
-    <div><img class="princeps-ball" src="princeps-ball.svg" alt="Another ball"></div>
+    <div class="princeps-work">ПРИНЦИПЫ <br>РАБОТЫ</div>
+    <div><img class="princeps-ball" src="/princeps-ball.svg" alt="Another ball"></div>
   </div>
 
   <div class="princeps-slider">
@@ -187,9 +2262,9 @@
 <div class="fifth-block" id="fifth-block"> <!-- fifth Block starts (SYMPTOMS THAT I WORK WITH) -->
   <div class="symptoms-heading">
     <div class="symptoms-ball">
-      <img class="symptoms-ball-img" src="symptoms-ball.svg" alt="Another ball">
+      <img class="symptoms-ball-img" src="/symptoms-ball.svg" alt="Another ball">
     </div>
-    <div class="symptoms-work">С КАКИМИ<br>ЖАЛОБАМИ<br>РАБОТАЮ</div>
+    <div class="symptoms-work">С КАКИМИ <br> ЖАЛОБАМИ<br> РАБОТАЮ</div>
   </div>
 <div class="symptoms-boxes-noborder">
 
@@ -204,6 +2279,7 @@
       <div class="edutype-description" id="edutype-description1">беспокоящее чувство<br>неопределенности или беды<br>в будущем, внутреннее<br>напряжение</div>
     </div>
     <div class="symptoms-box-noborder" id="edubox2" onclick="eduColor('edubox2', 'edutype-description2','almamater22','edutype-symptoms2')" >
+      <img class="horizontal-symptoms-top mob" src="symptoms-horizontal.svg">
       <img class="vertical-symptoms-left" src="symptoms-vertical.svg">
       <img class="horizontal-symptoms-bottom" src="symptoms-horizontal.svg">
       <img class="vertical-symptoms-right" src="symptoms-vertical.svg">
@@ -214,6 +2290,7 @@
       
     </div>
     <div class="symptoms-box-noborder" id="edubox3" onclick="eduColor('edubox3', 'edutype-description3','almamater23','edutype-symptoms3')">
+      <img class="horizontal-symptoms-top mob" src="symptoms-horizontal.svg">
       <img class="vertical-symptoms-left" src="symptoms-vertical.svg">
       <img class="horizontal-symptoms-bottom" src="symptoms-horizontal.svg">
       <img class="vertical-symptoms-right" src="symptoms-vertical.svg">
@@ -223,6 +2300,7 @@
       <div class="edutype-description" id="edutype-description3">Эмоциональная неустойчивость,<br>частая смена настроения в течение<br>дня</div>
     </div>
     <div class="symptoms-box-noborder" id="edubox4" onclick="eduColor('edubox4', 'edutype-description4','almamater24','edutype-symptoms4')">
+      <img class="horizontal-symptoms-top mob" src="symptoms-horizontal.svg">
       <img class="vertical-symptoms-left" src="symptoms-vertical.svg">
       <img class="horizontal-symptoms-bottom" src="symptoms-horizontal.svg">
       <img class="vertical-symptoms-right" src="symptoms-vertical.svg">
@@ -232,36 +2310,36 @@
       <div class="edutype-description" id="edutype-description4">Безразличие ко всему, отсутствие<br>стремления к какой-либо<br>деятельности</div>
     </div>
     <div class="symptoms-box-noborder" id="edubox5" onclick="eduColor('edubox5', 'edutype-description5','almamater25','edutype-symptoms5')">
-      <img class="vertical-symptoms-left" src="symptoms-vertical.svg">
-      <img class="horizontal-symptoms-bottom" src="symptoms-horizontal.svg">
-      <img class="vertical-symptoms-right" src="symptoms-vertical.svg">
+      <img class="vertical-symptoms-left" src="/symptoms-vertical.svg">
+      <img class="horizontal-symptoms-bottom" src="/symptoms-horizontal.svg">
+      <img class="vertical-symptoms-right" src="/symptoms-vertical.svg">
       <div class="stepnumber2">05</div>
       <div class="almamater2" id="almamater25">СЕКСОЛОГИЧЕСКИЕ<br>РАССТРОЙСТВА</div>
       <div class="edutype-symptoms" id="edutype-symptoms5">СЕКСОЛОГИЧЕСКИЕ<br>РАССТРОЙСТВА</div>
       <div class="edutype-description" id="edutype-description5">Аноргазмия, эректильная<br>дисфункция, преждевременная<br>эякуляция</div>
     </div>
     <div class="symptoms-box-noborder" id="edubox6" onclick="eduColor('edubox6', 'edutype-description6','almamater26','edutype-symptoms6')">
-      <img class="vertical-symptoms-left" src="symptoms-vertical.svg">
-      <img class="horizontal-symptoms-bottom" src="symptoms-horizontal.svg">
-      <img class="vertical-symptoms-right" src="symptoms-vertical.svg">
+      <img class="vertical-symptoms-left" src="/symptoms-vertical.svg">
+      <img class="horizontal-symptoms-bottom" src="/symptoms-horizontal.svg">
+      <img class="vertical-symptoms-right" src="/symptoms-vertical.svg">
       <div class="stepnumber2">06</div>
       <div class="almamater2" id="almamater26">ОБСЕССИВНО-<br>КОМПУЛЬСИВНОЕ<br>РАССТРОЙСТВО</div>
       <div class="edutype-symptoms" id="edutype-symptoms6" style="top:130px">ОБСЕССИВНО-<br>КОМПУЛЬСИВНОЕ<br>РАССТРОЙСТВО</div>
       <div class="edutype-description" id="edutype-description6">Нежелательные навязчивые мысли<br>и действия</div>
     </div>
     <div class="symptoms-box-noborder" id="edubox7" onclick="eduColor('edubox7', 'edutype-description7','almamater27','edutype-symptoms7')">
-      <img class="vertical-symptoms-left" src="symptoms-vertical.svg">
-      <img class="horizontal-symptoms-bottom" src="symptoms-horizontal.svg">
-      <img class="vertical-symptoms-right" src="symptoms-vertical.svg">
+      <img class="vertical-symptoms-left" src="/symptoms-vertical.svg">
+      <img class="horizontal-symptoms-bottom" src="/symptoms-horizontal.svg">
+      <img class="vertical-symptoms-right" src="/symptoms-vertical.svg">
       <div class="stepnumber2">07</div>
       <div class="almamater2" id="almamater27">ПРОКРАСТИНАЦИЯ</div>
       <div class="edutype-symptoms" id="edutype-symptoms7">ПРОКРАСТИНАЦИЯ</div>
       <div class="edutype-description" id="edutype-description7">Постоянное откладывание решения<br>задач, которое сопровождается<br>чувством вины и стресса </div>
     </div>
     <div class="symptoms-box-noborder" id="edubox8" onclick="eduColor('edubox8', 'edutype-description8','almamater28','edutype-symptoms8')">
-      <img class="vertical-symptoms-left" src="symptoms-vertical.svg">
-      <img class="horizontal-symptoms-bottom" src="symptoms-horizontal.svg">
-      <img class="vertical-symptoms-right" src="symptoms-vertical.svg">
+      <img class="vertical-symptoms-left" src="/symptoms-vertical.svg">
+      <img class="horizontal-symptoms-bottom" src="/symptoms-horizontal.svg">
+      <img class="vertical-symptoms-right" src="/symptoms-vertical.svg">
       <div class="stepnumber2">08</div>
       <div class="almamater2" id="almamater28">ОЩУЩЕНИЕ ТУПИКА<br>И БЕЗЫСХОДНОСТИ</div>
       <div class="edutype-symptoms" id="edutype-symptoms8">ОЩУЩЕНИЕ ТУПИКА<br>И БЕЗЫСХОДНОСТИ</div>
@@ -276,35 +2354,35 @@
 
 <div class="sixth-block" id="sixth-block"> <!-- Sixth Block ends (Session structure) -->
   <div class="session-heading">
-    <div class="session-work">КАК ПРОХОДИТ<br>СЕССИЯ?</div>
-    <div class="session-ball"><img class="session-star" src="session-star.svg" alt="Another star"></div>
+    <div class="session-work">КАК ПРОХОДИТ <br>СЕССИЯ?</div>
+    <div class="session-ball"><img class="session-star" src="/session-star.svg" alt="Another star"></div>
   </div>
 
   <div class="session-steps">
     <div class="boxesS">
       <div class="boxS">
         <div class="edutype-session">ЗНАКОМСТВО</div>
-        <div class="almamater4">На первой встрече мы познакомимся,<br>проведем диагностику вашего<br>состояния и определимся с вашим<br> запросом. </div>
+        <div class="almamater4">На первой встрече мы познакомимся, <br>проведем диагностику вашего <br>состояния и определимся с вашим<br> запросом. </div>
       </div>
       <div class="boxS">
         <div class="edutype-session">ПОСЛЕДУЮЩИЕ ВСТРЕЧИ</div>
-        <div class="almamater4">Далее мы будем работать<br>по структуре: обсуждение домашнего<br>задания, определение повестки дня,<br>анализ темы и резюме встречи</div>
+        <div class="almamater4">Далее мы будем работать<br>по структуре: обсуждение домашнего <br>задания, определение повестки дня,<br>анализ темы и резюме встречи</div>
       </div>
       <div class="boxS">
         <div class="edutype-session">ПОВЕСТКА ДНЯ</div>
-        <div class="almamater4">Первые пару минут уделим<br>определению темы, чтобы «сверить<br>часы» и двигаться в нужном вам<br>направлении</div>
+        <div class="almamater4">Первые пару минут уделим<br>определению темы, чтобы «сверить <br>часы» и двигаться в нужном вам <br>направлении</div>
       </div>
       <div class="boxS">
         <div class="edutype-session">ОБСУЖДЕНИЕ ТЕМЫ</div>
-        <div class="almamater4">Основное время сессии будет<br>направлено на обсуждение и анализ<br>повестки дня. Буду задавать много<br>вопросов, будем обсуждать варианты<br>решения ситуации</div>
+        <div class="almamater4">Основное время сессии будет <br>направлено на обсуждение и анализ <br>повестки дня. Буду задавать много <br>вопросов, будем обсуждать варианты <br>решения ситуации</div>
       </div>
       <div class="boxS">
         <div class="edutype-session">РЕЗЮМЕ</div>
-        <div class="almamater4">В конце встречи подведем итоги,<br>сделаем выводы, определимся<br>с планами на дальнейшую работу<br>и при необходимости сформируем<br>домашнее задание</div>
+        <div class="almamater4">В конце встречи подведем итоги, <br>сделаем выводы, определимся <br>с планами на дальнейшую работу <br>и при необходимости сформируем <br>домашнее задание</div>
       </div>
       <div class="boxSLast">
         <div class="edutype-session">ДОМАШНЕЕ ЗАДАНИЕ</div>
-        <div class="almamater4">Для проработки навыка или запроса<br>нужна регулярная практика, на это<br>и направлены домашние задания, ведь<br>главные изменения происходят вне<br>сессии. Это может быть анализ<br>мыслей и поведения, задания<br>на проработку определенного навыка,<br>поведенческие эксперименты<br>и экспозиции</div>
+        <div class="almamater4">Для проработки навыка или запроса <br>нужна регулярная практика, на это <br>и направлены домашние задания, ведь <br>главные изменения происходят вне<br>сессии. Это может быть анализ <br>мыслей и поведения, задания <br>на проработку определенного навыка, <br>поведенческие эксперименты <br>и экспозиции</div>
       </div>
     </div>
   </div>
@@ -312,16 +2390,26 @@
 
 </div> <!-- Sixth Block ends -->
 
-<div class="seventh-block" id="seventh-block"> <!-- Seventh Block SERVICES starts -->
+<div class="seventh-block" id="seventh-block"> <!-- Seventh Block SERVICES starts
+
+<img class="horizontal-services1" src="/horizontal-services.svg">
+        <img class="vertical-services1" src="vertical-services.svg">
+
+              <img class="horizontal-services2" src="/horizontal-services.svg">
+        <img class="vertical-services2" src="vertical-services.svg">
+
+         <img class="vertical-services3" src="vertical-services.svg">
+
+-->
   <div class="services-heading">
-    <div class="services-ball"><img class="services-star" src="services-star.svg" alt="Another star"></div>
+    <div class="services-ball"><img class="services-star" src="/services-star.svg" alt="Another star"></div>
     <div class="services-work">УСЛУГИ</div>
   </div>
   <div class="price">
     <div class="boxesSE">
       <div class="boxSE" id="boxSE" onclick="changeColor('service-description1','boxSE','almamater31')">
-        <img class="horizontal-services1" src="horizontal-services.svg">
-        <img class="vertical-services1" src="vertical-services.svg">
+        <div class="horizontal-services1"></div>
+        <div class="vertical-services1"></div>
         <div class="stepnumber3">01</div>
         <div class="edutype3">ОНЛАЙН КОНСУЛЬТАЦИЯ</div>
         <div class="service-description" id="service-description1">
@@ -335,8 +2423,8 @@
         <div class="almamater3" id="almamater31">4 400 &#8381; / 2500&#8381;</div>
       </div>
       <div class="boxSE2 " id="boxSE2" onclick="changeColor('service-description2','boxSE2','almamater32')" >
-        <img class="horizontal-services2" src="horizontal-services.svg">
-        <img class="vertical-services2" src="vertical-services.svg">
+        <div class="horizontal-services2"></div>
+        <div class="vertical-services2"></div>
         <div class="stepnumber3">02</div>
         <div class="edutype3">ЭКСТРЕННАЯ КОНСУЛЬТАЦИЯ</div>
         <div class="service-description" id="service-description2">
@@ -351,7 +2439,8 @@
       </div>
       <div class="boxSE3" id="boxSE3" onclick="changeColor('service-description3','boxSE3','almamater33')" >
         
-        <img class="vertical-services3" src="vertical-services.svg">
+        <div class="vertical-services3"></div>
+        <div class="horizontal-services3"></div>
         <div class="stepnumber3">03</div>
         <div class="edutype3">КОНСУЛЬТАЦИЯ НА АНГЛИЙСКОМ</div>
         <div class="service-description" id="service-description3">
@@ -375,7 +2464,7 @@
 <div class="eight-block" id="eight-block"> <!-- Eight block (REVIEWS) starts here -->
   <div class="review-heading">
     <div class="review-work">ОТЗЫВЫ</div>
-    <div class="review-ball"><img class="review-ball-img" src="review-ball.svg" alt="Another ball"></div>
+    <div class="review-ball"><img class="review-ball-img" src="/review-ball.svg" alt="Another ball"></div>
   </div>
 
   <div class="review-accordion">
@@ -385,7 +2474,7 @@
         <div>НаПоправку</div>
       </div>
       <div class="accordion-inside" id="accordion-inside1">
-        Есть с чем сравнить, ходила<br>на прием к более опытным<br>и дорогим врачам. Но только тут я<br>увидела желание мне помочь.<br>Очень вежливый и чуткий врач.
+        Есть с чем сравнить, ходила на прием к более опытным и дорогим врачам. Но только тут я увидела желание мне помочь. Очень вежливый и чуткий врач.
         <div class="accordion-upside" id="accordion-upside1">
           <div>Отзыв от 2022 года</div>
           <div>НаПоправку</div>
@@ -502,8 +2591,9 @@
 <div class="nine-block" id="nine-block"> <!-- NINE Block FAQ STARTS HERE -->
 
   <div class="faq-heading">
-    <div class="faq-ball"><img class="faq-star" src="faq-star.svg" alt="Another star"></div>
-    <div class="faq-work">ВОПРОСЫ<br>И ОТВЕТЫ</div>
+    <div class="faq-ball"><img class="faq-star" src="/faq-star.svg" alt="Another star"></div>
+    <div class="faq-work-mobile">ВОПРОСЫ <br>И ОТВЕТЫ</div>
+    <div class="faq-work-desktop">ЧАСТЫЕ ВОПРОСЫ И ОТВЕТЫ</div>
   </div>
 
   <div class="faq-accordion">
@@ -511,13 +2601,13 @@
     <div class="faq-accordion-faq" onclick="accordionFaq('faq-accordion-heading1', 'faq-accordion-inside1', 'faq-inside-head1', 'faq-plus1','div-for-padding1')">
       <div class="faq-accordion-js" id="faq-accordion-heading1">
         <div>ЧТО ТАКОЕ ПСИХОТЕРАПИЯ?</div>
-        <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus"></div>
+        <div class="faq-plus-button"><img class="faq-plus" src="/faq-plus.svg" alt="Click here to open" id="faq-plus"></div>
       </div>
       <div class="div-for-padding" id="div-for-padding1">
       <div class="faq-panel" id="faq-accordion-inside1">
         <div class="faq-inside-head" id="faq-inside-head1">
           <div>ЧТО ТАКОЕ ПСИХОТЕРАПИЯ?</div>
-          <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus1"></div>
+          <div class="faq-plus-button"><img class="faq-plus" src="/faq-plus.svg" alt="Click here to open" id="faq-plus1"></div>
       </div>
         <div><b>01/ Персонализированная</b><br>техника, которая представляет собой<br>нечто среднее между техникой<br>планируемых изменений отношений,<br>чувств и поведения человек,<br>и познавательным процессом,<br>который, в отличие от любого<br>другого, ставит человека лицом<br>к лицу с его внутренними<br>конфликтами и противоречиями;
         <br><br>
@@ -533,14 +2623,14 @@
     </div>
     <div class="faq-accordion-faq" onclick="accordionFaq('faq-accordion-heading2', 'faq-accordion-inside2', 'faq-inside-head2','faq-plus2','div-for-padding2')">
       <div class="faq-accordion-js" id="faq-accordion-heading2">
-        <div>КАКИЕ ВИДЫ<br>ПСИХОТЕРАПИИ БЫВАЮТ?</div>
-        <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus"></div>
+        <div>КАКИЕ ВИДЫ <br>ПСИХОТЕРАПИИ БЫВАЮТ?</div>
+        <div class="faq-plus-button"><img class="faq-plus" src="/faq-plus.svg" alt="Click here to open" id="faq-plus"></div>
       </div>
       <div class="div-for-padding" id="div-for-padding2">
       <div class="faq-panel" id="faq-accordion-inside2">
         <div class="faq-inside-head" id="faq-inside-head2">
-          <div>КАКИЕ ВИДЫ<br>ПСИХОТЕРАПИИ БЫВАЮТ?</div>
-        <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus2"></div>
+          <div>КАКИЕ ВИДЫ <br>ПСИХОТЕРАПИИ БЫВАЮТ?</div>
+        <div class="faq-plus-button"><img class="faq-plus" src="/faq-plus.svg" alt="Click here to open" id="faq-plus2"></div>
         </div>
         <div>Выделяют более 800 видов психотерапии.<br>К основным видам относится 
           <b>психодинамический, когнитивно-поведенческий и экзистенциальный.</b></div>
@@ -550,14 +2640,14 @@
     </div>
     <div class="faq-accordion-faq" onclick="accordionFaq('faq-accordion-heading3', 'faq-accordion-inside3', 'faq-inside-head3','faq-plus3','div-for-padding3')">
       <div class="faq-accordion-js" id="faq-accordion-heading3">
-        <div>КАКОЙ ПСИХОТЕРАПЕВ-ИЙ<br>ПОДХОД ЛУЧШЕ?</div>
-        <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus"></div>
+        <div>КАКОЙ ПСИХОТЕРАПЕВТИЧЕСКИЙ <br>ПОДХОД ЛУЧШЕ?</div>
+        <div class="faq-plus-button"><img class="faq-plus" src="/faq-plus.svg" alt="Click here to open" id="faq-plus"></div>
       </div>
       <div class="div-for-padding" id="div-for-padding3">
       <div class="faq-panel" id="faq-accordion-inside3">
         <div class="faq-inside-head" id="faq-inside-head3">
-        <div>КАКОЙ ПСИХОТЕРАПЕВ-ИЙ<br>ПОДХОД ЛУЧШЕ?</div>
-        <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus3"></div>
+        <div>КАКОЙ ПСИХОТЕРАПЕВТИЧЕСКИЙ <br>ПОДХОД ЛУЧШЕ?</div>
+        <div class="faq-plus-button"><img class="faq-plus" src="/faq-plus.svg" alt="Click here to open" id="faq-plus3"></div>
       </div>
         <div>Каждый подход имеет свои плюсы и минусы, а самое главное, работает. Ключевыми факторами в психотерапии являются <b>знания и чуткость психотерапевта,</b> а <b>также желание/готовность клиента к изменениям.</b><br>В отличие от других психотерапевтических подходов именно <b>когнитивно-поведенческая терапия имеет научную доказанность ввиду структурности метода.</b></div>
       </div>
@@ -565,15 +2655,15 @@
     </div>
     <div class="faq-accordion-faq" onclick="accordionFaq('faq-accordion-heading4', 'faq-accordion-inside4', 'faq-inside-head4','faq-plus4','div-for-padding4')">
       <div class="faq-accordion-js" id="faq-accordion-heading4">
-        <div>ЧТО ТАКОЕ КПТ?</div>
-        <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus"></div>
+        <div>ЧТО ТАКОЕ КОГНИТИВНО-ПОВЕДЕНЧЕСКАЯ ТЕРАПИЯ?</div>
+        <div class="faq-plus-button"><img class="faq-plus" src="/faq-plus.svg" alt="Click here to open" id="faq-plus"></div>
       </div>
       <div class="div-for-padding" id="div-for-padding4">
       <div class="faq-panel" id="faq-accordion-inside4">
         
         <div class="faq-inside-head" id="faq-inside-head4">
-        <div>ЧТО ТАКОЕ КПТ?</div>
-        <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus4"></div>
+        <div>ЧТО ТАКОЕ КОГНИТИВНО-ПОВЕДЕНЧЕСКАЯ ТЕРАПИЯ?</div>
+        <div class="faq-plus-button"><img class="faq-plus" src="/faq-plus.svg" alt="Click here to open" id="faq-plus4"></div>
       </div>
         <div><b>Когнитивно-поведенческая терапия (или КПТ)</b> — методика, которая направлена на определение автоматических мыслей и глубинных убеждений человека, которые, зачастую неосознанно, влияют на его настроение, поведение и жизнь в целом.<br>Определив данные установки, их можно сделать более гибкими,заменить на другие, а может и просто отказаться от некоторых, что и помогает добиться поставленных клиентом целей.</div>
       </div>
@@ -581,14 +2671,14 @@
     </div>
     <div class="faq-accordion-faq" onclick="accordionFaq('faq-accordion-heading5', 'faq-accordion-inside5', 'faq-inside-head5','faq-plus5','div-for-padding5')">
       <div class="faq-accordion-js" id="faq-accordion-heading5">
-        <div>НУЖНА ЛИ МНЕ<br>ПСИХОТЕРАПИЯ?</div>
-        <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus"></div>
+        <div>НУЖНА ЛИ МНЕ <br>ПСИХОТЕРАПИЯ?</div>
+        <div class="faq-plus-button"><img class="faq-plus" src="/faq-plus.svg" alt="Click here to open" id="faq-plus"></div>
       </div>
       <div class="div-for-padding" id="div-for-padding5">
       <div class="faq-panel" id="faq-accordion-inside5">
         <div class="faq-inside-head" id="faq-inside-head5">
-        <div>НУЖНА ЛИ МНЕ<br>ПСИХОТЕРАПИЯ?</div>
-        <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus5"></div>
+        <div>НУЖНА ЛИ МНЕ <br>ПСИХОТЕРАПИЯ?</div>
+        <div class="faq-plus-button"><img class="faq-plus" src="/faq-plus.svg" alt="Click here to open" id="faq-plus5"></div>
       </div>
         <div><b>Не обязательно.</b> Возможно, вы попали в трудную ситуацию. где будет достаточно психологического консультирования (дает возможность посмотреть на ситуацию под другим углом/получить поддержку и принятие/ и др.), которое может длится несколько встреч. <br>Возможно, вам нужно психообразование (объяснение особенностей течения расстройств, поиск путей по «сглаживанию углов» некоторых расстройств)</div>
       </div>
@@ -596,14 +2686,14 @@
     </div>
     <div class="faq-accordion-faq" onclick="accordionFaq('faq-accordion-heading6', 'faq-accordion-inside6', 'faq-inside-head6','faq-plus6','div-for-padding6')">
       <div class="faq-accordion-js" id="faq-accordion-heading6">
-        <div>В КАКОМ ФОРМАТЕ<br>ПРОХОДИТ СЕССИЯ?</div>
-        <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus"></div>
+        <div>В КАКОМ ФОРМАТЕ <br>ПРОХОДИТ СЕССИЯ?</div>
+        <div class="faq-plus-button"><img class="faq-plus" src="/faq-plus.svg" alt="Click here to open" id="faq-plus"></div>
       </div>
       <div class="div-for-padding" id="div-for-padding6">
       <div class="faq-panel" id="faq-accordion-inside6">
         <div class="faq-inside-head" id="faq-inside-head6">
-        <div>В КАКОМ ФОРМАТЕ<br>ПРОХОДИТ СЕССИЯ?</div>
-        <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus6"></div>
+        <div>В КАКОМ ФОРМАТЕ <br>ПРОХОДИТ СЕССИЯ?</div>
+        <div class="faq-plus-button"><img class="faq-plus" src="/faq-plus.svg" alt="Click here to open" id="faq-plus6"></div>
       </div>
         <div>Сессии проходят онлайн в <b>сервисе Google Meets</b> (при необходимости можем провести сессию в удобном для вас сервисе). За пару минут до встречи я отправлю вам ссылку на подключение. <br><b>Важно технически подготовиться к встрече</b>: находится в помещении, где будете только вы, где есть доступ к качественному интернету, камере, микрофону. Важно, чтобы вы могли говорить в свободной и комфортной атмосфере</div>
       </div>
@@ -611,14 +2701,14 @@
     </div>
     <div class="faq-accordion-faq" onclick="accordionFaq('faq-accordion-heading7', 'faq-accordion-inside7', 'faq-inside-head7','faq-plus7','div-for-padding7')">
       <div class="faq-accordion-js" id="faq-accordion-heading7">
-        <div>СКОЛЬКО ОБЫЧНО ДЛИТСЯ<br>СЕССИЯ? КАК ЧАСТО?</div>
-        <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus"></div>
+        <div>СКОЛЬКО ОБЫЧНО ДЛИТСЯ <br>СЕССИЯ? КАК ЧАСТО?</div>
+        <div class="faq-plus-button"><img class="faq-plus" src="/faq-plus.svg" alt="Click here to open" id="faq-plus"></div>
       </div>
       <div class="div-for-padding" id="div-for-padding7">
       <div class="faq-panel" id="faq-accordion-inside7">
         <div class="faq-inside-head" id="faq-inside-head7">
-        <div>СКОЛЬКО ОБЫЧНО ДЛИТСЯ<br>СЕССИЯ? КАК ЧАСТО?</div>
-        <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus7"></div>
+        <div>СКОЛЬКО ОБЫЧНО ДЛИТСЯ <br>СЕССИЯ? КАК ЧАСТО?</div>
+        <div class="faq-plus-button"><img class="faq-plus" src="/faq-plus.svg" alt="Click here to open" id="faq-plus7"></div>
       </div>
         <div>Сессии проходят <b>один раз в неделю по 55 минут.</b></div>
       </div>
@@ -626,14 +2716,14 @@
     </div>
     <div class="faq-accordion-faq" onclick="accordionFaq('faq-accordion-heading8', 'faq-accordion-inside8', 'faq-inside-head8','faq-plus8','div-for-padding8')">
       <div class="faq-accordion-js" id="faq-accordion-heading8">
-        <div>ЧТО ТАКОЕ ЖАЛОБА<br>И ЗАПРОС?</div>
-        <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus"></div>
+        <div>ЧТО ТАКОЕ ЖАЛОБА <br>И ЗАПРОС?</div>
+        <div class="faq-plus-button"><img class="faq-plus" src="/faq-plus.svg" alt="Click here to open" id="faq-plus"></div>
       </div>
       <div class="div-for-padding" id="div-for-padding8">
       <div class="faq-panel" id="faq-accordion-inside8">
         <div class="faq-inside-head" id="faq-inside-head8">
-        <div>ЧТО ТАКОЕ ЖАЛОБА<br>И ЗАПРОС?</div>
-        <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus8"></div>
+        <div>ЧТО ТАКОЕ ЖАЛОБА <br>И ЗАПРОС?</div>
+        <div class="faq-plus-button"><img class="faq-plus" src="/faq-plus.svg" alt="Click here to open" id="faq-plus8"></div>
       </div>
         <div><b>Жалобы —</b> это те проблемы, которые клиент описывает, придя на первую встречу. Например: «Не высыпаюсь; постоянно грустно; плачу; не вижу выхода из ситуации».<br> <b>Запрос —</b> это четкая цель, которую клиент ставит в качестве задачи психотерапии. Зачастую первые запросы формулируются совместно с психотерапевтом. Например: «Хочу так изменить свое поведение, чтобы получилось построить отношения; стать продуктивнее; получить повышение; стать стрессоустойчивее». <br><b>Не запросы:</b> «Помогите изменить мою мать», «Я не хочу это чувствовать», «Я ленивый».</div>
       </div>
@@ -641,14 +2731,14 @@
     </div>
     <div class="faq-accordion-faq" onclick="accordionFaq('faq-accordion-heading9', 'faq-accordion-inside9', 'faq-inside-head9','faq-plus9','div-for-padding9')">
       <div class="faq-accordion-js" id="faq-accordion-heading9">
-        <div>СКОЛЬКО ПОТРЕБУЕТСЯ<br>ВРЕМЕНИ НА МОЙ ЗАПРОС?</div>
-        <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus"></div>
+        <div>СКОЛЬКО ПОТРЕБУЕТСЯ <br>ВРЕМЕНИ НА МОЙ ЗАПРОС?</div>
+        <div class="faq-plus-button"><img class="faq-plus" src="/faq-plus.svg" alt="Click here to open" id="faq-plus"></div>
       </div>
       <div class="div-for-padding" id="div-for-padding9">
       <div class="faq-panel" id="faq-accordion-inside9">
         <div class="faq-inside-head" id="faq-inside-head9">
-        <div>СКОЛЬКО ПОТРЕБУЕТСЯ<br>ВРЕМЕНИ НА МОЙ ЗАПРОС?</div>
-        <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus9"></div>
+        <div>СКОЛЬКО ПОТРЕБУЕТСЯ <br>ВРЕМЕНИ НА МОЙ ЗАПРОС?</div>
+        <div class="faq-plus-button"><img class="faq-plus" src="/faq-plus.svg" alt="Click here to open" id="faq-plus9"></div>
         </div>
         <div>В среднем, <b>на проработку одного небольшого запроса уходит до 10 встреч,</b> однако бывает по-разному. Есть такие запросы, с которыми можно разобраться за 3 встречи, а есть такие, на которые потребуется более 20 встреч.</div>
       </div>
@@ -656,14 +2746,14 @@
     </div>
     <div class="faq-accordion-faq" onclick="accordionFaq('faq-accordion-heading10', 'faq-accordion-inside10', 'faq-inside-head10','faq-plus10','div-for-padding10')">
       <div class="faq-accordion-js" id="faq-accordion-heading10">
-        <div>МОЖЕТ ЛИ СТАНОВИТЬСЯ<br>ХУЖЕ ВО ВРЕМЯ ТЕРАПИИ?</div>
-        <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus"></div>
+        <div>МОЖЕТ ЛИ СТАНОВИТЬСЯ <br>ХУЖЕ ВО ВРЕМЯ ТЕРАПИИ?</div>
+        <div class="faq-plus-button"><img class="faq-plus" src="/faq-plus.svg" alt="Click here to open" id="faq-plus"></div>
       </div>
       <div class="div-for-padding" id="div-for-padding10">
       <div class="faq-panel" id="faq-accordion-inside10">
         <div class="faq-inside-head" id="faq-inside-head10">
-        <div>МОЖЕТ ЛИ СТАНОВИТЬСЯ<br>ХУЖЕ ВО ВРЕМЯ ТЕРАПИИ?</div>
-        <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus10"></div>
+        <div>МОЖЕТ ЛИ СТАНОВИТЬСЯ <br>ХУЖЕ ВО ВРЕМЯ ТЕРАПИИ?</div>
+        <div class="faq-plus-button"><img class="faq-plus" src="/faq-plus.svg" alt="Click here to open" id="faq-plus10"></div>
       </div>
         <div><b>Да, может. И на это есть ряд причин:</b><br><b>01/</b> В ходе терапии мы поднимаем травматический, тяжелый опыт, который по каким-то причинам не был интегрирован;<br><b>02/</b> Отсутствие быстрых результатов может фрустрировать;<br><b>03/</b> Изменения могут интегрироваться не сразу: «я стараюсь, а все равно ничего не получается».<br>А еще есть «неизвестные неизвестности», то есть факторы, которые могут влиять на нас, но мы о них еще не знаем.</div>
       </div>
@@ -682,76 +2772,86 @@
 
 
 
-
+<div class="get-in-touch">GET IN TOUCH</div>
 <div class="ten-block" id="ten-block"> <!-- 10 block (GET IN TOUCH) starts here -->
-  <div class="get-in-touch">GET IN TOUCH</div>
+<div class="super-whole-contact">
   <div class="whole-contact">
-    <div class="contact-heading">
-      ВАШЕ ИМЯ *
+<div>
+      <div class="contact-heading">
+        ВАШЕ ИМЯ *
+      </div>
+      <div class="contact-input">
+        <input type="text" placeholder="Анна">
+      </div>
     </div>
-    <div class="contact-input">
-      <input type="text" placeholder="Анна">
+    <div>
+      <div class="contact-heading">
+        НОМЕР ТЕЛЕФОНА *
+      </div>
+      <div class="contact-input">
+        <input type="number" placeholder="+7 (999) 999-99-99">
+      </div>
     </div>
-    <div class="contact-heading">
-      НОМЕР ТЕЛЕФОНА *
+    <div>
+      <div class="contact-heading">
+        EMAIL *
+      </div>
+      <div class="contact-input">
+        <input type="email" placeholder="annaorlova@gmail.com">
+      </div>
     </div>
-    <div class="contact-input">
-      <input type="number" placeholder="+7 (999) 999-99-99">
+    <div>
+      <div class="contact-heading">
+        СПОСОБ СВЯЗИ *
+      </div>
+      <div class="contact-input">
+        <select>
+          <option value="Telegram">Telegram</option>
+          <option value="WhatsApp">WhatsApp</option>
+          </select>
+        </div>
     </div>
-    <div class="contact-heading">
-      EMAIL *
-    </div>
-    <div class="contact-input">
-      <input type="email" placeholder="annaorlova@gmail.com">
-    </div>
-    <div class="contact-heading">
-      СПОСОБ СВЯЗИ *
-    </div>
-    <div class="contact-input">
-      <select>
-        <option value="Telegram">Telegram</option>
-        <option value="WhatsApp">WhatsApp</option>
-        </select>
-    </div>
-    <div class="contact-heading">
-      КОММЕНАТРИЙ
-    </div>
-    <div class="contact-input">
-      <textarea>Вопросы, уточнения, пожелания</textarea>
-    </div>
-    <div class="checkbox-comment">
-      <input type="checkbox" checked class="checkbox">
-      <div>Я согласен (-на) с политикой<br>
-        конфиденциальности</div>
-    </div>
-    <button class="book-in">Отправить</button>
+
 
 
   </div> 
+  <div class="contact-heading">
+    КОММЕНТАРИЙ
+  </div>
+  <div class="contact-input">
+    <textarea>Вопросы, уточнения, пожелания</textarea>
+  </div>
+  <div class="checkbox-comment">
+    <input type="checkbox" checked class="checkbox">
+    <div>Я согласен (-на) с политикой <br>
+      конфиденциальности</div>
+  </div>
+  <button class="book-in">Отправить</button>
+</div>
 
 
-</div> <!-- 10 block (GET IN TOUCH) ends here content -->
-
-<div class="eleven-block" id="eleven-block"> <!-- Eleven block (RATIONAL THOUGHTS) starts here -->
 
 <div class="rational">
   <div class="rational1">
-    Периодически я могу испытывать<br>одиночество, но это не означает, что<br>я одинок. Есть люди, которым я важен<br>и которые желают мне лучшего.
+    Периодически я могу испытывать <br>одиночество, но это не означает, что<br>я одинок. Есть люди, которым я важен <br>и которые желают мне лучшего.
   </div>
   <div class="rational-ball1">
     <img src="rational-ball1.png" alt="Another star" class="rational-ball1-img">
   </div>
   <div class="rational2">
-    Ошибки и поражения — естественная часть<br>жизни, без этого никак. Нет людей, которые<br>всегда выполняют все задачи. На самом деле,<br> я хороший как сотрудник, так и человек.
+    Ошибки и поражения — естественная часть <br>жизни, без этого никак. Нет людей, которые <br>всегда выполняют все задачи. На самом деле,<br> я хороший как сотрудник, так и человек.
   </div>
   <div class="rational-ball2">
     <img src="rational-ball2.png" alt="Another star" class="rational-ball2-img">
   </div>
   <div class="rational3">
-    Отношения — это конечно важная сфера<br>жизни, но не единственная. Есть еще<br>много интересных вещей в жизни, которые<br>мне нравятся
+    Отношения — это конечно важная сфера <br>жизни, но не единственная. Есть еще<br>много интересных вещей в жизни, которые <br>мне нравятся
   </div>
   <div class="rational-ball3">
     <img src="rational-ball3.png" alt="Another star" class="rational-ball3-img">
+  </div>
+  <div class="rational4">
+    Мне бы хотелось, чтобы все получалось идеально, но так не бывает. Это нормально, если что-то не получается.
   </div>
 
 </div>
@@ -794,4 +2894,196 @@
 
   </div> <!-- To end content -->
 
+  <script>
+    /*window.onload = Navbar; */
+    function Navbar() {
+  let x = document.getElementById("navbar-side");
+  let y = document.getElementById("navbar-icon");
+  let c = document.getElementById("navbar-x");
+
+  if (x.style.display === "none" &&
+      y.style.display === "block" &&
+      c.style.display === "none")
+     
+    {
+    x.style.display = "flex",
+    y.style.display = "none";
+    c.style.display = "block";
+   
+  } else {
+    x.style.display = "none";
+    y.style.display = "block";
+    c.style.display = "none";
+    
+  }
+}
+
+
+window.addEventListener('load', function() {
+  const preloader = document.querySelector('.preloader');
+  const content = document.querySelector('.content');
+
+  setTimeout(function() {
+    preloader.style.opacity = 0;
+    setTimeout(function() {
+      preloader.style.display = 'none';
+      content.style.display = 'block'; // Show the content after preloader is hidden
+    }, 300);
+  }, 900); // Replace 2000 with the duration of your loading process
+});
+
+
+const words = ["HACK", "YOUR", "THOUGHTS"];
+let index = 0;
+const textElement = document.querySelector(".preloader-text");
+
+function changeText() {
+  textElement.textContent = words[index];
+  index = (index + 1) % words.length;
+}
+setInterval(changeText, 300);
+
+/*
+function accordion(idx,idy,idc) {
+  let x = document.getElementById(idx);
+  let y = document.getElementById(idy);
+  let c = document.getElementById(idc);
+  if (x.style.display === "none",
+      y.style.display === "grid",
+      c.style.display === "flex") 
+    {
+    x.style.display = "flex",
+    y.style.display = "none";
+    c.style.display = "none";
+  } else {
+    x.style.display = "none";
+    y.style.display = "grid";
+    c.style.display = "flex";
+  }
+}
+*/
+function accordion(idx,idy,idc) {
+  let x = document.getElementById(idx);
+  let y = document.getElementById(idy);
+  let c = document.getElementById(idc);
+  x.classList.toggle('heading-hide');
+  y.classList.toggle('inside-show');
+  c.classList.toggle('upside-show');
+
+}
+/*
+function accordion(idx,idy,idc) {
+  let x = document.getElementById(idx);
+  let y = document.getElementById(idy);
+  let c = document.getElementById(idc);
+x.classList.toggle('accordion-heading-hide');
+y.classList.toggle('accordion-inside-show');
+c.classList.toggle('accordion-upside-show');
+}
+*/
+/*
+function faq(idx,idy,idc) {
+  let x = document.getElementById(idx);
+  let y = document.getElementById(idy);
+  let c = document.getElementById(idc);
+  if (x.style.display === "none",
+      y.style.transform === "rotate(0deg)",
+      c.style.display === "flex")
+       {
+
+      x.style.display = "flex";
+      y.style.transform = "rotate(45deg)";
+      c.style.display = "none";
+      
+
+} else if (
+      x.style.display = "flex",  
+      y.style.transform = "rotate(45deg)",
+      c.style.display = "none")
+       {
+
+      x.style.display = "none";
+      y.style.transform = "rotate(0deg)";
+      c.style.display = "flex";
+      
+}
+}
+*/
+
+function changeColor (idx,idy,idc) {
+  let x = document.getElementById(idx);
+  let y = document.getElementById(idy);
+  let c = document.getElementById(idc);
+  x.classList.toggle('serviceColorClass');
+  y.classList.toggle('serviceColorClass');
+  c.classList.toggle('serviceColorClass');
+}
+
+function eduColor (idx,idy,idc,idf) {
+  let x = document.getElementById(idx);
+  let y = document.getElementById(idy);
+  let c = document.getElementById(idc);
+  let f = document.getElementById(idf);
+ 
+  x.classList.toggle('eduColorClass');
+  y.classList.toggle('edutype-description-show');
+  c.classList.toggle('almamater2-show');
+  f.classList.toggle('edutype-symptoms-hide')
+ 
+}
+
+
+
+/*
+var acc = document.getElementsByClassName("faq-accordion-js");
+var acc2 = document.getElementsByClassName("faq-panel")
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+
+  });
+}
+*/
+
+function accordionFaq(idx,idy,idc,idf,idb) {
+  let x = document.getElementById(idx);
+  let y = document.getElementById(idy);
+  let c = document.getElementById(idc);
+  let f = document.getElementById(idf);
+  let b = document.getElementById(idb);
+  
+  if (x.style.display === "none" &&
+      y.style.display === "flex" &&
+      c.style.display === "flex" &&
+      f.style.transform === "rotate(45deg)" &&
+      b.style.display === "flex") 
+    {
+    x.style.display = "flex",
+    y.style.display = "none";
+    c.style.display = "none";
+    f.style.transform = "rotate(0deg)";
+    b.style.display = "none";
+    
+  } else {
+    x.style.display = "none";
+    y.style.display = "flex";
+    c.style.display = "flex";
+    f.style.transform = "rotate(45deg)";
+    b.style.display = "flex"
+   
+  }
+}
+
+
+
+  </script>
 </body>
+</html>
