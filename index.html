@@ -1501,9 +1501,12 @@ a {
 .span1 {
   text-decoration: underline;
 }
+.ending-desktop {
+  display: none;
+}
 
 @media only screen and (min-width: 1440px) {
-  header, .first-block, .second-block, .third-block,.forth-block,.fifth-block,.sixth-block,.seventh-block,.eight-block,.nine-block, .ending {
+  header, .first-block, .second-block, .third-block,.forth-block,.fifth-block,.sixth-block,.seventh-block,.eight-block,.nine-block, .ending,.ending-desktop {
       padding-left: 72px;
       padding-right: 72px;
     }
@@ -2028,6 +2031,60 @@ a {
       transform: rotate(39deg);
       width: 288px;
       height: 54px;
+    }
+    .ending {
+      display: none;
+    }
+    .ending-desktop {
+      display: grid;
+      grid-template-columns: 184px 410px 392px 270px;
+      height: 110px;
+      padding-top: 100px;
+
+    }
+    .navbar-ending,.messenger-ending,.confident-ending {
+      font-size: 12px;
+      font-weight: 500;
+      padding-top: 24px;
+      justify-content: center;
+      justify-self: center;
+    }
+    .surname-ending {
+      padding-top: 24px;
+    }
+    .navbar-ending {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: 20px;
+      line-height: 20px;
+
+    }
+
+    .navbar-ending li {
+      list-style: none;
+    }
+    .messenger-ending {
+      display: flex;
+      justify-content: space-around;
+      width: 320px;
+
+    }
+    .confident-ending {
+      display: flex;
+
+    }
+    .confident-ending br {
+      display: none;
+    }
+    .all-rights {
+      justify-content: space-around;
+      padding-top: 32px;
+      padding-bottom: 24px;
+    }
+    .collab {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 30px;
     }
 }
 
@@ -2893,14 +2950,45 @@ a {
     </div>
     </div>
 
-    <div class="all-rights">
-      <div>Все права защищены © 2024</div>
-        <div class="collab">
-          <div><a href="https://t.me/ulyanafilipovich" target="_blank" title="Telegram">Дизайн сайта</a></div>
-          <div><a href="https://t.me/psychotherapistslivka" target="_blank" title="Telegram">Создание сайта</a></div>
-      </div>
-    </div>
+   
 </div> <!-- Ending ends here-->
+
+<div class="ending-desktop"> <!--Ending-desktop starts here-->
+  <div class="surname-ending">
+    <b>АНДРЕЙ СЛИВКА.</b>
+  </div>
+  <div class="navbar-ending">
+    <li><a href="#second-block">ОБО МНЕ</a></li>
+    <li><a href="#third-block">ОБРАЗОВАНИЕ</a></li>
+    <li><a href="#fourth-block">ПРИНЦИПЫ РАБОТЫ</a></li>
+    <li><a href="#fifth-block">ЗАПРОСЫ</a></li>
+    <li><a href="#sixth-block">О СЕССИИ</a></li>
+    <li><a href="#seventh-block">УСЛУГИ</a></li>
+    <li><a href="#eight-block">ОТЗЫВЫ</a></li>
+    <li><a href="#nine-block">ВОПРОСЫ И ОТВЕТЫ</a></li>
+  </div>
+  <div class="messenger-ending">
+    <a href="www.instagra.com" target="_blank" title="Insagram">INSTAGRAM  </a>
+    &#8226;
+    <a href="https://t.me/psychotherapistslivka" target="_blank" title="Telegram">TELEGRAM</a>
+     &#8226; 
+    <a href="https://api.whatsapp.com/send/?phone=79817854087&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp">WHATSAPP</a> </div>
+  
+  <div class="confident-ending">ПОЛИТИКА <br>КОНФИДЕНЦИАЛЬНОСТИ</div>
+
+</div> <!--Ending desktop ends here-->
+
+<div class="all-rights">
+  <div>Все права защищены © 2024</div>
+    <div class="collab">
+      <div><a href="https://t.me/ulyanafilipovich" target="_blank" title="Telegram">Дизайн сайта</a></div>
+      <div><a href="https://t.me/psychotherapistslivka" target="_blank" title="Telegram">Создание сайта</a></div>
+  </div>
+</div>
+
+
+
+
 
   </div> <!-- To end content -->
 
