@@ -142,7 +142,7 @@
     .active-x {
       display: block;
     }
-    .book-in {
+    .book-in,.contact-button {
       margin-top: 20px;
       margin-left: 40px;
       width: 193px;
@@ -602,6 +602,8 @@ right: 0px
 }
 .boxes {
   gap: 8px;
+  justify-content: center;
+    align-items: center;
 }
 /*
 .boxes .box {
@@ -645,9 +647,8 @@ right: 0px
 
 
 .ten-block {
-  margin-top: 100px;
+  padding-top: 100px;
   background-color: #FDFAF0;
-  box-sizing: border-box;
   padding-bottom: 30px;
   display: flex;
   flex-direction: column;
@@ -661,6 +662,8 @@ right: 0px
   text-align: center;
   font-size: 47.5px;
   font-weight: bold;
+  background-color: #FDFAF0;
+  
 }
 
 .whole-contact {
@@ -761,7 +764,8 @@ text-align: left;
   align-items: center;
   padding-top: 40px;
   gap: 5px;
-  border-bottom: #000000 solid 1px;
+  position: relative;
+
   padding-bottom: 10px;
   font-size: 18px;
   line-height: 22px;
@@ -772,6 +776,16 @@ text-align: left;
   width: 306px;
   line-height: 22px;
 }
+.princep-border {
+  position: absolute;
+  border: 1px solid;
+  border-top: none;
+  border-left: none;
+  border-right:none;
+  bottom: -5px;
+  width: 350px;
+}
+
 /*
 .symptoms-heading {
   display: flex;
@@ -1063,6 +1077,9 @@ text-align: left;
   padding-top: 50px;
   padding-bottom: 50px;
 }
+.review-accordion-review {
+  cursor: pointer;
+}
 
 .accordion-heading{
   display: flex;
@@ -1071,6 +1088,7 @@ text-align: left;
   border-bottom: #272727 1px solid;
   width: 327px;
   height: 40px;
+
 
 }
 /*
@@ -1474,7 +1492,7 @@ display: grid;
 
 .horizontal-services2 {
   position: absolute;
-  bottom: -8px;
+  top: -8px;
  
 }
 .vertical-services2 {
@@ -1503,6 +1521,8 @@ a {
 }
 .ending-desktop {
   display: none;
+  background-color: #FDFAF0;
+
 }
 
 @media only screen and (min-width: 1440px) {
@@ -1512,6 +1532,26 @@ a {
     }
     header {
       padding-top: 52px;
+    }
+    .navbar-side {
+      width: 400px;
+      height: 400px;
+      position: static;
+      flex-direction: column;
+      border-radius: 30px;
+      padding: 0;
+      margin: 0;
+      gap: 10px;
+    }
+
+    .navbar-side li {
+      font-size: 16px;
+      width: 125px;
+      text-indent: 0;
+      text-align: center;
+    }
+    .book-in {
+      display: none
     }
     .first-block {
       width: auto;
@@ -1567,8 +1607,8 @@ a {
     }
     .ideal {
       width: 326px;
-      top: 130px;
-      left: 170px;
+      top: 120px;
+      left: 140px;
       transform: rotate(-8deg);
       color: #394B33;
       background-color: #D1D3B9;
@@ -1581,13 +1621,16 @@ a {
     .looser {
       width: 366px;
       transform: rotate(14.34deg);
-      top: 290px;
-      left: 550px;
+      top: 270px;
+      left: 490px;
 
     }
     .ball33 {
-      left: 300px;
-      top: 180px;
+      width: 70px;
+      height: 70px;
+      top: 172px;
+      left: 290px;
+      
     }
     .unloved {
       width: 210px;
@@ -1599,14 +1642,14 @@ a {
       transform: rotate(15.89deg);
     }
     .ball44 {
-      left: 500px;
+      left: 460px;
       top: 287px;
     }
     .unhappy {
       width: 385px;
       transform: rotate(20deg);
-      top: 250px;
-      left: 120px;
+      top: 235px;
+      left: 80px;
 
     }
     .ball55 {
@@ -1617,23 +1660,30 @@ a {
   display: flex;
     }
     .bye {
-    left: 400px;
+    left: 350px;
     top: 150px;
     }
     .ball66 {
-      top: 60px;
-      left: 630px;
+      top: 57px;
+      left: 625px;
     }
     .follow {
-      top: 230px;
-      left: 750px;
+      top: 215px;
+      left: 710px;
     }
     .ball77 {
-      top: 220px;
-      left: 750px;
+      top: 215px;
+      left: 740px;
+    }
+    .second-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     .h2andphoto {
       width: 1296px ;
+     
     }
     .h2-mobile {
       display: none;
@@ -1692,6 +1742,9 @@ a {
     .edu-work {
       font-size: 55px;
     }
+    .edu-ball {
+      animation: rotate 5s linear infinite;
+    }
     .edutype,.almamater {
       width: 351px;
     }
@@ -1719,7 +1772,15 @@ a {
   padding-top: 192px;
   justify-content: flex-start;
   align-items: center;
-  
+}
+.princep-type {
+  padding-bottom: 16px;
+}
+.princep-content {
+  padding-top: 16px;
+}
+.princep-border {
+  bottom: -4px;
 }
 .princeps-work {
   font-size: 55px;
@@ -1727,6 +1788,7 @@ a {
 .princeps-ball {
   position: static;
   padding-left: 20px;
+  animation: rotate 5s linear infinite;
 }
 .princeps-heading br {
   display: none;
@@ -1759,6 +1821,21 @@ a {
     }
     .symptoms-ball {
     position: static;
+    animation: rotate 5s linear infinite;
+    }
+    .symptoms-box-noborder:hover .edutype-symptoms {
+      display: none;
+    }
+    .symptoms-box-noborder:hover {
+      background-color:rgb(73, 97, 65);
+      border-radius: 15px;
+      color: white;
+    }
+    .symptoms-box-noborder:hover .almamater2 { 
+      visibility: visible;
+    }
+    .symptoms-box-noborder:hover .edutype-description{
+      visibility: visible;
     }
 
 
@@ -1790,6 +1867,7 @@ a {
       position: relative;
       top: 10px;
       right: 0px;
+      animation: rotate 5s linear infinite;
     }
     
     .services-heading {
@@ -1851,9 +1929,45 @@ a {
       height: 293px;
       padding-left: 24px;
     }
-
+    .boxSE:hover,.boxSE2:hover,.boxSE3:hover {
+      background-color: rgb(73, 97, 65);
+      border-radius: 15px;
+      color: white;
+    }
+    
+    .boxSE:hover .service-description {
+      opacity: 1;
+    }
+    .boxSE2:hover .service-description {
+      opacity: 1;
+    }
+    .boxSE3:hover .service-description {
+      opacity: 1;
+    }
+    .boxSE:hover .almamater3 {
+     color: white;
+    }
+    .boxSE2:hover .almamater3 {
+     color: white;
+    }
+    .boxSE3:hover .almamater3 {
+     color: white;
+    }
+   .boxSE:hover div{
+    border-color: #000000;
+   }
+   .boxSE2:hover div{
+    border-color: #000000;
+   }
  
-
+   .boxSE3:hover div{
+    border-color: #000000;
+   }
+ 
+ 
+.service-ball {
+  animation: rotate 5s linear infinite;
+}
 
 
   
@@ -1881,6 +1995,7 @@ a {
       display: grid;
       grid-template-columns: 640px 640px;
       column-gap: 24px;
+      align-items: start;
     }
   .review-heading {
     width: 360px;
@@ -1889,9 +2004,11 @@ a {
 
   .review-work {
     font-size: 55px;
+    padding-right: 40px;
   }
   .review-ball {
-    padding-left: 40px;
+    animation: rotate 5s linear infinite;
+    
   }
   .accordion-heading {
     width: 636px;
@@ -1922,6 +2039,7 @@ a {
   }
   .faq-ball {
     top: 0;
+    animation: rotate 5s linear infinite;
   }
 
   .faq-accordion {
@@ -1929,6 +2047,7 @@ a {
       display: grid;
       grid-template-columns: 636px 636px;
       column-gap: 24px;
+      align-items: start;
     }
     .faq-accordion-js {
       width: 636px;
@@ -1950,7 +2069,7 @@ a {
     .ten-block {
       display: grid;
       grid-template-columns: 550px 700px;
-      margin-top: 20px;
+      padding-top: 20px;
     }
     .super-whole-contact {
       display: flex;
@@ -2037,9 +2156,10 @@ a {
     }
     .ending-desktop {
       display: grid;
-      grid-template-columns: 184px 410px 392px 270px;
+      grid-template-columns: 192px 426px 408px 280px;
       height: 110px;
       padding-top: 100px;
+  
 
     }
     .navbar-ending,.messenger-ending,.confident-ending {
@@ -2048,13 +2168,18 @@ a {
       padding-top: 24px;
       justify-content: center;
       justify-self: center;
+      position: relative;
+      padding-inline: 48px;
+     
     }
     .surname-ending {
       padding-top: 24px;
+      padding-right: 48px;
+      position: relative;
     }
     .navbar-ending {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 135px;
       column-gap: 20px;
       line-height: 20px;
 
@@ -2071,21 +2196,74 @@ a {
     }
     .confident-ending {
       display: flex;
+      width: 280px;
 
     }
     .confident-ending br {
       display: none;
     }
     .all-rights {
-      justify-content: space-around;
+      justify-content: space-between;
       padding-top: 32px;
       padding-bottom: 24px;
+      padding-inline: 72px;
+      background-color: #FDFAF0;
     }
     .collab {
       flex-direction: row;
       justify-content: space-between;
       gap: 30px;
     }
+    .surname-ending-border-top,.surname-ending-border-right,.navbar-ending-border-top,.navbar-ending-border-right,.messenger-ending-border-top,.messenger-ending-border-right,.confident-ending-border-top {
+      border-style: solid;
+      border-bottom: none;
+      border-right: none;
+      border-left: none;
+      border-top-width: 1px;
+      position: absolute;
+    }
+    .surname-ending-border-top,.navbar-ending-border-top,.messenger-ending-border-top,.confident-ending-border-top {
+      top: 0;
+    
+    }
+    .surname-ending-border-right,.navbar-ending-border-right,.messenger-ending-border-right,.confident-ending-border-right {
+      width: 100px;
+      transform: rotate(90deg);
+      top: 60px;
+ 
+    }
+    .surname-ending-border-top {
+      width: 184px;
+     
+    }
+    .surname-ending-border-right {
+     right: -49px
+    }
+    .navbar-ending-border-top {
+      width: 410px;
+      left: 8px;
+    }
+    .navbar-ending-border-right {
+      right: -50px
+    }
+    .messenger-ending-border-top {
+      width: 392px;
+    }
+    .messenger-ending-border-right {
+      right: -47px
+    }
+    .confident-ending-border-top {
+      width: 262px;
+    }
+    @keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 }
 
 
@@ -2093,6 +2271,15 @@ a {
 
 
 @media only screen and (min-width: 1920px) {
+  body {
+    padding-inline: 10vw;
+  }
+  .boxes {
+    grid-template-columns: 650px 650px;
+ 
+  }
+}
+@media only screen and (min-width: 2560px) {
   body {
     padding-inline: 20vw;
   }
@@ -2122,7 +2309,7 @@ a {
         <li onclick="Navbar()"><a href="#sixth-block">О СЕССИИ</a></li>
         <li onclick="Navbar()"><a href="#seventh-block">УСЛУГИ</a></li>
         <li onclick="Navbar()"><a href="#eight-block">ОТЗЫВЫ</a></li>
-        <li onclick="Navbar()"><a href="#nine-block">ВОПРОСЫ И ОТВЕТЫ</a></li>
+        <li onclick="Navbar()"><a href="#nine-block">FAQ</a></li>
         <button class="book-in">
           <a href="https://n819238.yclients.com/" target="_blank" title="Ссылка на YClients" style="color: #F7F5EF">Записаться</a>
         </button>
@@ -2191,7 +2378,7 @@ a {
       <div>Преимущественно работаю<br>в когнитивно-поведенческом<br>направлении, но не являюсь заложником<br>метода. Давайте вместе разберемся, как<br>вам помочь.</div>
     </div>
     <div class="underh2text-desktop">
-      <div>Меня зовут Андрей Сливка. Я — психиатр, психотерапевт и психолог.</b> Последние 5 лет активно консультирую и оказываю поддержку людям в трудных периодах жизни, помогаю принять себя и позволить себе жить полной жизнью.</div>
+      <div>Меня зовут Андрей Сливка. <b>Я — психиатр, психотерапевт и психолог.</b> Последние 5 лет активно консультирую и оказываю поддержку людям в трудных периодах жизни, помогаю принять себя и позволить себе жить полной жизнью.</div>
       <div>Преимущественно работаю в когнитивно-поведенческом направлении, но не являюсь заложником метода. Давайте вместе разберемся, как вам помочь.</div>
     </div>
   </div>
@@ -2270,6 +2457,8 @@ a {
       <div class="princep-type">
         <div class="princep-number">01.</div>
         <div class="princep-name">ИНДИВИДУАЛЬНОСТЬ</div>
+        <div class="princep-border"></div>
+        
       </div>
       <div class="princep-content">
         При выстраивании работы будем<br>ориентироваться на вашу личность и гибко подбирать техники индивидуально под вас. В этом плане каждый психотерапевтический контакт<br>уникален. 
@@ -2279,6 +2468,8 @@ a {
       <div class="princep-type">
         <div class="princep-number">02.</div>
         <div class="princep-name">ОТКРЫТОСТЬ</div>
+        <div class="princep-border"></div>
+        
       </div>
       <div class="princep-content">
         На разных этапах работы буду<br>сообщать о том, что мы делаем<br>и зачем. Чем больше вы знаете<br>— тем лучше.
@@ -2288,6 +2479,8 @@ a {
       <div class="princep-type">
         <div class="princep-number">03.</div>
         <div class="princep-name">ПРОФЕССИОНАЛИЗМ</div>
+        <div class="princep-border"></div>
+        
       </div>
       <div class="princep-content">
 
@@ -2298,6 +2491,8 @@ a {
       <div class="princep-type">
         <div class="princep-number">04.</div>
         <div class="princep-name">ЦЕЛЕНАПРАВЛЕННОСТЬ</div>
+        <div class="princep-border"></div>
+        
       </div>
       <div class="princep-content">
         Современная психотерапия — это<br>не магия, у нее есть четкая структура и<br>цель. Определившись с запросом, мы<br>будем двигаться по основной линии,<br>чтобы добиться результата.
@@ -2307,6 +2502,7 @@ a {
       <div class="princep-type">
         <div class="princep-number">05.</div>
         <div class="princep-name">КОНФИДЕНЦИАЛЬНОСТЬ</div>
+        <div class="princep-border"></div>
       </div>
       <div class="princep-content">
         Все вопросы и проблемы, которые мы<br>будем поднимать на встречах,<br>остаются между нами. Информация не<br>будет мною разглашена.
@@ -2316,6 +2512,8 @@ a {
       <div class="princep-type">
         <div class="princep-number">06.</div>
         <div class="princep-name">ЭТИЧНОСТЬ</div>
+        <div class="princep-border"></div>
+        
       </div>
       <div class="princep-content">
         В работе строго придерживаюсь<br>этического кодекса психотерапевта.<br>Никаких других отношений с клиентом,<br>кроме психотерапевтических.  
@@ -2469,7 +2667,7 @@ a {
 
 -->
   <div class="services-heading">
-    <div class="services-ball"><img class="services-star" src="services-star.svg" alt="Another star"></div>
+    <div class="service-ball"><img class="services-star" src="services-star.svg" alt="Another star"></div>
     <div class="services-work">УСЛУГИ</div>
   </div>
   <div class="price">
@@ -2893,7 +3091,7 @@ a {
     <div>Я согласен (-на) с политикой <br>
       конфиденциальности</div>
   </div>
-  <button class="book-in">Отправить</button>
+  <button class="contact-button"><a href="mailto:midvay@mail.ru">Отправить</a></button>
 </div>
 
 
@@ -2956,6 +3154,8 @@ a {
 <div class="ending-desktop"> <!--Ending-desktop starts here-->
   <div class="surname-ending">
     <b>АНДРЕЙ СЛИВКА.</b>
+    <div class="surname-ending-border-top"></div>
+    <div class="surname-ending-border-right"></div>
   </div>
   <div class="navbar-ending">
     <li><a href="#second-block">ОБО МНЕ</a></li>
@@ -2965,16 +3165,25 @@ a {
     <li><a href="#sixth-block">О СЕССИИ</a></li>
     <li><a href="#seventh-block">УСЛУГИ</a></li>
     <li><a href="#eight-block">ОТЗЫВЫ</a></li>
-    <li><a href="#nine-block">ВОПРОСЫ И ОТВЕТЫ</a></li>
+    <li><a href="#nine-block">FAQ</a></li>
+    <div class="navbar-ending-border-top"></div>
+    <div class="navbar-ending-border-right"></div>
   </div>
   <div class="messenger-ending">
     <a href="www.instagra.com" target="_blank" title="Insagram">INSTAGRAM  </a>
     &#8226;
     <a href="https://t.me/psychotherapistslivka" target="_blank" title="Telegram">TELEGRAM</a>
      &#8226; 
-    <a href="https://api.whatsapp.com/send/?phone=79817854087&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp">WHATSAPP</a> </div>
+    <a href="https://api.whatsapp.com/send/?phone=79817854087&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp">WHATSAPP</a> 
+    <div class="messenger-ending-border-top"></div>
+    <div class="messenger-ending-border-right"></div>
+  </div>
   
-  <div class="confident-ending">ПОЛИТИКА <br>КОНФИДЕНЦИАЛЬНОСТИ</div>
+  <div class="confident-ending">
+    ПОЛИТИКА <br>КОНФИДЕНЦИАЛЬНОСТИ
+    <div class="confident-ending-border-top"></div>
+
+  </div>
 
 </div> <!--Ending desktop ends here-->
 
