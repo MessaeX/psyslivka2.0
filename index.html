@@ -7,11 +7,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js" integrity="sha512-aNMyYYxdIxIaot0Y1/PLuEu3eipGCmsEUBrUq+7aVyPGMFH8z0eTP0tkqAvv34fzN6z+201d3T8HPb1svWSKHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <style>
     * {
       margin: 0;
       padding: 0;
+
     }
     html {
       background: #ECE8DE;
@@ -20,7 +21,15 @@
       font-family: "onest", sans-serif;
       background: #F7F5EF;
       color: #272727;
-
+    }
+    body::-webkit-scrollbar {
+      width: 10px;
+    }
+    body::-webkit-scrollbar-thumb {
+      background: #496141;
+    }
+    body::-webkit-scrollbar-track-piece {
+      background: #ECE8DE;
     }
     .preloader {
     position: fixed;
@@ -66,28 +75,13 @@
       background-origin: border-box;
       padding-top: 30px;
     }
-    .navbar-button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 55px;
-      height: 55px;
-      border-radius: 25px;
-      background-color: #E2E3D2;
-      /*position: fixed;
-      right: 10px;
-      top: 10px;
-      */
-      z-index: 200;
-    }
+
     .navbar-icon {
-      display: block;
       width: 24px;
       height: 24px;
       border-radius: 5px;
       margin-inline: 12px;
-      transform: rotate(0deg);
-      transition: 1s;
+      cursor: pointer;
     }
 
 
@@ -99,33 +93,99 @@
       justify-content: center;
       align-items: center;
     }
-    .navbar-side {
-      display: none;
-      flex-direction: column;
-      justify-content: baseline;
-      text-align: left;
-      background-color: #CACCB6;
-      position: fixed;
-      padding-top: 50px;
-      top: 0;
-      left: 0;
-      box-sizing: border-box;
-      width: 100%;
-      height: 100%;
-      z-index: 100;
+
+    .navbar-active {
+
+  border-radius: 30px;
+  padding-inline: 24px;
+  animation: navbarAnim ease-in-out 0.1s;
+}
+@keyframes navbarAnim {
+    0% {width: 0; height: 0;}
+    100% {width: 300px; height: 400px;}
     }
-    .navbar-side-active {
-      display: flex;
-    }
-    .navbar-icon-active {
-      display: none;
-    }
-    .navbar-x-active {
-      display: flex;
-    }
-    ul {
-      list-style: none;
-    }
+
+.navbar {
+  width: 60px;
+  height: 60px;
+
+  position: fixed;
+  top: 20px;
+  right: 15px;
+}
+.navbar.add {
+  background-color:  #E2E3D2;
+  width: 300px;
+  height: 450px;
+  z-index: 5000;
+}
+.navbar-button {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #e2e3d2;
+  width: 220px;
+  height: 60px;
+  border-radius: 30px;
+  z-index: 5000;
+}
+
+.navbar-x {
+  display: none;
+}
+.navbar-x-active {
+  display: flex;
+  font-size: 20px;
+  font-weight: bold;
+
+}
+.navbar-icon-hidden {
+  display: none;
+}
+ul,
+li,
+a {
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-side1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 8px;
+  column-gap: 5px;
+  row-gap: 5px;
+}
+.div-for-end {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.navbar-heading1 {
+  font-weight: bold;
+}
+.navbar-submenu1,
+.navbar-submenu2 {
+  padding-top: 24px;
+  visibility: hidden;
+}
+.navbar-submenu1-active,
+.navbar-submenu2-active {
+  visibility: visible;
+}
+    .navbar-side-border {
+  position: absolute;
+  border: 1px solid;
+  border-top: none;
+  border-left: none;
+  border-right:none;
+  top: 0px;
+  left: 0;
+  width: 160px;
+}
+
     .navbar-side li {
       margin-left: 10px;
       color: #272727;
@@ -134,14 +194,8 @@
       text-indent: 40px;
       margin-top: 5px;
     }
-    .navbar-x {
-      display: none;
-      font-weight: bold;
-      font-size: 20px;
-    }
-    .active-x {
-      display: block;
-    }
+
+
     .book-in,.contact-button {
       margin-top: 20px;
       margin-left: 40px;
@@ -154,8 +208,18 @@
       font-weight: 500;
       border: none;
     }
+    .contact-button a {
+      color: #F7F5EF;
+    }
+    
     .navbar-book-in {
       display: none;
+ 
+    }
+    .navbar-book-in-active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 137px;
       height: 44px;
       border-radius: 30px;
@@ -164,8 +228,12 @@
       font-size: 16px;
       font-weight: 500;
       border: none;
+      margin-right: 20px;
     }
-
+    
+    .h1-desktop {
+      display: none;
+    }
     .h1-mobile {
       padding-top: 56px;
       color: #272727;
@@ -208,6 +276,7 @@
 
   }
   .alone {
+  display: flex;
   width: 115px;
   height: 52px;
   background-color: #F2E0CF;
@@ -276,6 +345,7 @@
   top: 287px;
 }
 .unhappy {
+  display: flex;
   width: 343px;
   height: 52px;
   background-color: #DDCFBB;
@@ -356,11 +426,20 @@ transform: rotate(-17.71deg);
   display: flex;
   justify-content: baseline;
   align-items: center;
-  padding-top: 70px;
+  padding-top: 140px;
 }
 .edu-ball {
   width: 50px;
   height: 50px;
+  animation: rotate 5s linear infinite;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 .edu-work {
   font-size: 30px;
@@ -408,9 +487,7 @@ transform: rotate(-17.71deg);
   padding-top: 1000px;
   height: 1400px;
 }
-.seventh-block {
 
-}
 
 
 
@@ -421,6 +498,10 @@ transform: rotate(-17.71deg);
   right: 16px;
   bottom: 24px;  
 }
+.edu-button:hover {
+  cursor: pointer;
+}
+
 .stepnumber,.stepnumber2,.stepnumber3 {
   margin-top: 16px;
   color: #6C3B0D;
@@ -656,6 +737,7 @@ right: 0px
   align-items: center;
 }
 .get-in-touch {
+  padding-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -753,9 +835,13 @@ text-transform: uppercase;
 text-align: left;
 }
 .princeps-ball {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   top: -15px;
   right: -20px;
+  animation: rotate 5s linear infinite;
 }
 
 .princep-type {
@@ -803,6 +889,7 @@ text-align: left;
   position: relative;
   top: -33px;
   right: 15px;
+  animation: rotate 5s linear infinite;
 }
 
 .almamater2 {
@@ -835,9 +922,13 @@ text-align: left;
   letter-spacing: -1%;
 }
 .session-ball {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   top: -15px;
   right: -20px;
+  animation: rotate 5s linear infinite;
 }
 
 /*Code for SESSION borders*/
@@ -920,8 +1011,11 @@ text-align: left;
   display: none;
 }
 .faq-ball {
+  width: 48px;
+  height: 48px;
   position: relative;
   top: -15px;
+  animation: rotate 5s linear infinite;
 }
 
 .faq-heading {
@@ -1006,7 +1100,7 @@ text-align: left;
   gap: 16px;
 }
 .services-heading {
-  padding-bottom: 15px;
+  padding-bottom: 50px;
 }
 .boxSE,.boxSE2,.boxSE3 {
   width: 310px;
@@ -1065,7 +1159,14 @@ text-align: left;
   font-size: 30px;
 }
 .review-ball {
-  padding-left: 10px;
+  margin-left: 10px;
+  width: 40px;
+  height: 40px;
+  animation: rotate 5s linear infinite;
+}
+.review-ball-img {
+  width: 40px;
+  height: 40px;
 }
 
 .review-accordion {
@@ -1077,8 +1178,9 @@ text-align: left;
   padding-top: 50px;
   padding-bottom: 50px;
 }
-.review-accordion-review {
+.review-accordion-review:hover {
   cursor: pointer;
+
 }
 
 .accordion-heading{
@@ -1189,7 +1291,7 @@ display: grid;
   background-color: #496141;
   width: 327px;
   height: 40px;
-  z-index: 100;
+
   border-radius: 15px;
 }
 .faq-accordion-inside div {
@@ -1328,7 +1430,11 @@ display: grid;
 }
 
 /*Code for ending borders ends*/
-
+.service-ball {
+  width: 48px;
+  height: 48px;
+  animation: rotate 5s linear infinite;
+}
 
 .all-rights {
   padding-top: 30px;
@@ -1524,7 +1630,25 @@ a {
   background-color: #FDFAF0;
 
 }
+@media only screen and (min-width: 768px) {
+  header, .first-block, .second-block, .third-block,.forth-block,.fifth-block,.sixth-block,.seventh-block,.eight-block,.nine-block, .ending,.ending-desktop {
+      padding-left: 50px;
+      padding-right: 36px;
+    }
+.boxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ending {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+}
 @media only screen and (min-width: 1440px) {
   header, .first-block, .second-block, .third-block,.forth-block,.fifth-block,.sixth-block,.seventh-block,.eight-block,.nine-block, .ending,.ending-desktop {
       padding-left: 72px;
@@ -1533,13 +1657,26 @@ a {
     header {
       padding-top: 52px;
     }
+    .navbar {
+  width: 196px;
+  height: 60px;
+  padding-inline: 24px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+.navbar.add {
+  background-color:  #E2E3D2;
+  width: 300px;
+  height: 450px;
+}
     .navbar-side {
-      width: 400px;
-      height: 400px;
+      width: 310px;
+      height: 380px;
       position: static;
       flex-direction: column;
       border-radius: 30px;
-      padding: 0;
+      padding: 30px;
       margin: 0;
       gap: 10px;
     }
@@ -1557,9 +1694,14 @@ a {
       width: auto;
       height: auto;
     }
+    
     .navbar-button {
-      width: 195px;
+      width: 310px;
       height: 60px;
+    }
+    .navbar-button-active {
+      flex-direction: row-reverse;
+      justify-content: space-between;
     }
     .h1-mobile {
       display: none;
@@ -1580,11 +1722,33 @@ a {
       width: 614px;
       height: 22px;
     }
+    .navbar-x-active {
+      padding-left: 0px;
+      cursor: pointer;
+    }
     .navbar-book-in {
       display: flex;
       justify-content: center;
       align-items: center;
+      width: 137px;
+      height: 44px;
+      border-radius: 30px;
+      background-color: #496141;
+      color: #F7F5EF;
+      font-size: 16px;
+      font-weight: 500;
+      border: none;
+      margin-right: 10px;
+      
     }
+
+   
+
+
+    .div-for-end {
+      flex-direction: row;
+    }
+   
     .animation-ideas {
       width: 900px;
       height: 500px;
@@ -1598,16 +1762,15 @@ a {
     .alone {
       width: 125px;
       height: 52px;
-      top: 60px;
-      left: 300px;
-      transform: rotate(-28.79deg);
+      top: -1000px;
+      left: 250px;
     }
     .ball11 {
       display: none;
     }
     .ideal {
       width: 326px;
-      top: 120px;
+      top: -1000px;
       left: 140px;
       transform: rotate(-8deg);
       color: #394B33;
@@ -1621,59 +1784,59 @@ a {
     .looser {
       width: 366px;
       transform: rotate(14.34deg);
-      top: 270px;
+      top: -1000px;
       left: 490px;
 
     }
     .ball33 {
       width: 70px;
       height: 70px;
-      top: 172px;
-      left: 290px;
+      top: -1000px;
+      left: 620px;
       
     }
     .unloved {
       width: 210px;
-      left: 420px;
-      top: 70px;
+      left: 300px;
+      top: -1000px;
       background-color: #DDCFBB;
       color: #553829;
-
       transform: rotate(15.89deg);
     }
     .ball44 {
-      left: 460px;
-      top: 287px;
+      left: 120px;
+      top: -1000px;
     }
     .unhappy {
+      display: flex;
       width: 385px;
       transform: rotate(20deg);
-      top: 235px;
+      top: -1000px;
       left: 80px;
 
     }
     .ball55 {
       left: 120px;
-      top: 250px;
+      top: -1000px;
     }
     .ball66,.ball77,.follow,.bye {
   display: flex;
     }
     .bye {
-    left: 350px;
-    top: 150px;
+    left: 180px;
+    top: -1000px;
     }
     .ball66 {
-      top: 57px;
-      left: 625px;
+      top: -1000px;
+      left: 425px;
     }
     .follow {
-      top: 215px;
+      top: -1000px;
       left: 710px;
     }
     .ball77 {
-      top: 215px;
-      left: 740px;
+      top: -1000px;
+      left: 600px;
     }
     .second-block {
       display: flex;
@@ -1742,9 +1905,7 @@ a {
     .edu-work {
       font-size: 55px;
     }
-    .edu-ball {
-      animation: rotate 5s linear infinite;
-    }
+  
     .edutype,.almamater {
       width: 351px;
     }
@@ -1787,13 +1948,32 @@ a {
 }
 .princeps-ball {
   position: static;
-  padding-left: 20px;
-  animation: rotate 5s linear infinite;
+  margin-left: 20px;
+  
 }
 .princeps-heading br {
   display: none;
 }
 
+.princeps-slider {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: y mandatory;
+  overflow: -moz-scrollbars-auto;
+  -ms-overflow-style:auto;  /* IE and Edge */
+  scrollbar-width: thin;  /* Firefox */
+
+  
+}
+.princeps-slider::-webkit-scrollbar {
+display: visible;
+}
+.princeps-slider::-webkit-scrollbar-thumb {
+background: #496141;
+}
+.princeps-slider::-webkit-scrollbar-track-piece {
+background: #ECE8DE;
+}
     .symptoms-work br {
       display: none;
     }
@@ -1821,7 +2001,7 @@ a {
     }
     .symptoms-ball {
     position: static;
-    animation: rotate 5s linear infinite;
+   
     }
     .symptoms-box-noborder:hover .edutype-symptoms {
       display: none;
@@ -1867,7 +2047,7 @@ a {
       position: relative;
       top: 10px;
       right: 0px;
-      animation: rotate 5s linear infinite;
+      
     }
     
     .services-heading {
@@ -1965,9 +2145,7 @@ a {
    }
  
  
-.service-ball {
-  animation: rotate 5s linear infinite;
-}
+
 
 
   
@@ -2004,12 +2182,9 @@ a {
 
   .review-work {
     font-size: 55px;
-    padding-right: 40px;
+    padding-right: 20px;
   }
-  .review-ball {
-    animation: rotate 5s linear infinite;
-    
-  }
+
   .accordion-heading {
     width: 636px;
   }
@@ -2039,7 +2214,7 @@ a {
   }
   .faq-ball {
     top: 0;
-    animation: rotate 5s linear infinite;
+    
   }
 
   .faq-accordion {
@@ -2059,6 +2234,9 @@ a {
     }
     .faq-panel {
       width: 636px;
+    }
+    .faq-panel br {
+      display: none;
     }
     
     .get-in-touch {
@@ -2255,14 +2433,7 @@ a {
     .confident-ending-border-top {
       width: 262px;
     }
-    @keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+  
 
 }
 
@@ -2300,26 +2471,59 @@ a {
     <div class="surname">АНДРЕЙ СЛИВКА.
 
     </div>
-    <div class="navbar">
-      <ul class="navbar-side" id="navbar-side">
+    
+  <div class="navbar" id="navbar">
+    <div class="div-for-end">
+      <div class="navbar-button" id="navbar-button">
+        <img class="navbar-icon" src="ic_round-menu.svg" id="navbar-icon" alt="Click me" onclick="navbarToggle('navbar','navbar-x','navbar-icon','navbar-submenu1','navbar-submenu2','navbar-book-in','navbar-button')"/>
+        
+        <a href="https://n819238.yclients.com/" target="_blank" title="Ссылка на YClients">
+          <div class="navbar-book-in" id="navbar-book-in"> Записаться</div>
+        </a>
+
+        <div class="navbar-x" id="navbar-x" onclick="navbarToggle('navbar','navbar-x','navbar-icon','navbar-submenu1','navbar-submenu2','navbar-book-in','navbar-button')">&#10005;</div>
+        
+          
+      </div>
+    </div>
+
+    <div class="navbar-submenu1" id="navbar-submenu1">
+      <div class="navbar-heading1">ГЛАВНАЯ</div>
+      <ul class="navbar-side1" id="navbar-side1">
         <li onclick="Navbar()"><a href="#second-block">ОБО МНЕ</a></li>
         <li onclick="Navbar()"><a href="#third-block">ОБРАЗОВАНИЕ</a></li>
-        <li onclick="Navbar()"><a href="#fourth-block">ПРИНЦИПЫ РАБОТЫ</a></li>
+        <li onclick="Navbar()">
+          <a href="#fourth-block">ПРИНЦИПЫ РАБОТЫ</a>
+        </li>
         <li onclick="Navbar()"><a href="#fifth-block">ЗАПРОСЫ</a></li>
         <li onclick="Navbar()"><a href="#sixth-block">О СЕССИИ</a></li>
         <li onclick="Navbar()"><a href="#seventh-block">УСЛУГИ</a></li>
         <li onclick="Navbar()"><a href="#eight-block">ОТЗЫВЫ</a></li>
-        <li onclick="Navbar()"><a href="#nine-block">FAQ</a></li>
-        <button class="book-in">
-          <a href="https://n819238.yclients.com/" target="_blank" title="Ссылка на YClients" style="color: #F7F5EF">Записаться</a>
-        </button>
-      </div>
-      <div class="navbar-button"  onclick="Navbar()" >
-        <img class="navbar-icon" src="ic_round-menu.svg" id="navbar-icon" alt="Click me">
-        <a href="https://n819238.yclients.com/" target="_blank" title="Ссылка на YClients" style="color: #F7F5EF"><div class="navbar-book-in" id="navbar-book-in">Записаться</div></a>
-        <div class="navbar-x" id="navbar-x">&#10005;</div>
-
+        <li onclick="Navbar()" style="padding-bottom: 5px">
+          <a href="#nine-block">FAQ</a>
+        </li>
+      </ul>
     </div>
+    <div class="navbar-submenu2" id="navbar-submenu2">
+      <div class="navbar-heading1">КЛИЕНТАМ</div>
+      <div class="navbar-side1">
+        <ul>
+          <li onclick="Navbar()">
+            <a
+              href="#eight-block"
+              style="position: relative; padding-top: 5px"
+              >ПСИХОТЕРАПЕВТИЧЕСКИЙ КОНТРАКТ
+            </a>
+          </li>
+          <li>БАЗОВЫЕ ТЕХНИКИ КПТ</li>
+          <li>КОГНИТИВНЫЕ ОШИБКИ</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+   
+
+
   </ul>
   </header>
 
@@ -2329,7 +2533,7 @@ a {
     <h1 class="h1-desktop">С ЛЮБЫМИ МЫСЛЯМИ МОЖНО БОРОТЬСЯ</h1>
     <div class="underh1">(ведь мысли — это просто мысли, и мы<br>можем ими управлять)</div>
  
-  <div class="animation-ideas">
+  <div class="animation-ideas" >
     <div class="alone idea" id="alone">Я одинок.</div>
     <div class="ball1"><svg class="ball11" xmlns="http://www.w3.org/2000/svg" width="47" height="47" viewBox="0 0 47 47" fill="none">
       <path d="M4.09167 13.7863C2.08807 12.041 4.15454 8.85383 6.56549 9.97082C8.50732 10.8705 10.5157 8.85908 9.61326 6.91858C8.49274 4.50927 11.6769 2.43813 13.4251 4.43916C14.8331 6.05083 17.486 5.03025 17.4508 2.89044C17.4071 0.233675 21.1584 -0.363294 21.9416 2.1758C22.5724 4.22083 25.411 4.36751 26.2492 2.39838C27.2899 -0.0464682 30.9597 0.933964 30.6424 3.57208C30.3868 5.69687 32.9204 6.98544 34.4871 5.52748C36.4322 3.71729 39.3859 6.10559 38.023 8.38658C36.9254 10.2237 38.7158 12.4314 40.74 11.7367C43.2532 10.8742 44.9802 14.2574 42.8074 15.7868C41.0573 17.0187 41.795 19.7637 43.9268 19.9524C46.5736 20.1866 46.7752 23.9798 44.1681 24.4932C42.0684 24.9068 41.6258 27.7146 43.4965 28.754C45.8192 30.0445 44.4605 33.5917 41.87 33.0004C39.7836 32.5242 38.2372 34.9092 39.5234 36.6196C41.1204 38.7433 38.4364 41.4312 36.3104 39.8374C34.598 38.5537 32.2153 40.1035 32.6946 42.1893C33.2897 44.7789 29.7445 46.1428 28.4506 43.822C27.4084 41.9528 24.6013 42.3995 24.1908 44.4999C23.6812 47.1077 19.8878 46.9116 19.6496 44.2652C19.4578 42.1337 16.7117 41.4001 15.4824 43.1519C13.9562 45.3269 10.5704 43.6049 11.4293 41.0904C12.121 39.0652 9.91071 37.278 8.07517 38.3784C5.79619 39.7446 3.40355 36.7944 5.21089 34.8466C6.66655 33.2778 5.37426 30.7462 3.24985 31.0048C0.612201 31.326 -0.373613 27.6577 2.0697 26.6134C4.0376 25.7723 3.88676 22.9339 1.8408 22.3061C-0.699434 21.5267 -0.107973 17.7745 2.54886 17.8143C4.68872 17.8463 5.7054 15.192 4.09167 13.7863Z" fill="#F48012"/>
@@ -2347,7 +2551,7 @@ a {
     <div class="ball4"><svg class="ball44" xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 74 74" fill="none">
       <path d="M69.9652 47.7214C72.4633 48.9922 70.9482 52.7785 68.2631 51.9751C65.9114 51.2716 64.2406 54.2478 66.0659 55.8891C68.15 57.763 65.7065 61.0282 63.3208 59.5573C61.2314 58.269 58.8472 60.7114 60.1855 62.7692C61.7136 65.1187 58.5083 67.6402 56.5846 65.6019C54.8998 63.8168 51.9647 65.5589 52.7248 67.8929C53.5927 70.5579 49.844 72.1639 48.5134 69.6972C47.348 67.5368 44.0621 68.4599 44.1922 70.9111C44.3408 73.7099 40.3042 74.2909 39.6573 71.5639C39.0908 69.1755 35.6779 69.2166 35.1692 71.618C34.5883 74.3599 30.5388 73.8764 30.6199 71.0748C30.6908 68.6212 27.3835 67.7776 26.2706 69.9655C24.9999 72.4636 21.2136 70.9485 22.0169 68.2634C22.7205 65.9117 19.7442 64.2409 18.103 66.0662C16.229 68.1503 12.9638 65.7069 14.4348 63.3212C15.723 61.2317 13.2806 58.8475 11.2229 60.1859C8.87335 61.7139 6.35183 58.5086 8.3901 56.5849C10.1753 54.9001 8.43314 51.965 6.09913 52.7251C3.43418 53.593 1.82817 49.8444 4.29489 48.5137C6.45528 47.3484 5.53217 44.0624 3.08096 44.1925C0.282188 44.3411 -0.298856 40.3045 2.42819 39.6577C4.81659 39.0911 4.77541 35.6782 2.37404 35.1695C-0.367819 34.5886 0.115678 30.5392 2.91722 30.6202C5.37085 30.6912 6.21441 27.3839 4.02653 26.271C1.52844 25.0003 3.04353 21.2139 5.72864 22.0173C8.08031 22.7208 9.75112 19.7446 7.92583 18.1033C5.84174 16.2294 8.28519 12.9642 10.6709 14.4351C12.7603 15.7234 15.1445 13.281 13.8062 11.2232C12.2781 8.8737 15.4834 6.35218 17.4071 8.39045C19.0919 10.1756 22.027 8.43349 21.2669 6.09948C20.399 3.43453 24.1477 1.82852 25.4783 4.29523C26.6437 6.45563 29.9297 5.53252 29.7995 3.0813C29.6509 0.282535 33.6876 -0.298514 34.3344 2.42853C34.9009 4.81693 38.3138 4.77576 38.8226 2.37439C39.4034 -0.367471 43.4529 0.116025 43.3718 2.91756C43.3009 5.3712 46.6082 6.21476 47.7211 4.02688C48.9918 1.52878 52.7781 3.04388 51.9748 5.72899C51.2712 8.08066 54.2475 9.75147 55.8887 7.92618C57.7627 5.84209 61.0279 8.28553 59.5569 10.6712C58.2687 12.7607 60.7111 15.1449 62.7688 13.8065C65.1184 12.2785 67.6399 15.4838 65.6016 17.4075C63.8164 19.0923 65.5586 22.0274 67.8926 21.2673C70.5575 20.3994 72.1635 24.148 69.6968 25.4787C67.5364 26.644 68.4595 29.93 70.9107 29.7999C73.7095 29.6513 74.2906 33.6879 71.5635 34.3347C69.1751 34.9013 69.2163 38.3142 71.6177 38.8229C74.3595 39.4038 73.876 43.4532 71.0745 43.3722C68.6209 43.3012 67.7773 46.6085 69.9652 47.7214Z" fill="#496141"/>
     </svg></div>
-    <div class="unhappy idea">Я не могу быть счастливой, если не любят.</div>
+    <div class="unhappy idea" id="unhappy" onclick="disIdea('unhappy')">Я не могу быть счастливой, если не любят.</div>
     <div class="ball5"><svg class="ball55" xmlns="http://www.w3.org/2000/svg" width="69" height="69" viewBox="0 0 69 69" fill="none">
       <path d="M31.367 3.41805C31.8561 -0.237617 37.1439 -0.237619 37.633 3.41804C38.0326 6.40484 41.9879 7.1916 43.5001 4.58508C45.3509 1.39484 50.2362 3.4184 49.289 6.98295C48.5152 9.89531 51.8684 12.1358 54.2629 10.3064C57.1937 8.06727 60.9327 11.8063 58.6936 14.7371C56.8642 17.1316 59.1047 20.4848 62.0171 19.711C65.5816 18.7638 67.6052 23.6491 64.4149 25.4999C61.8084 27.0121 62.5952 30.9674 65.582 31.367C69.2376 31.8561 69.2376 37.1439 65.582 37.633C62.5952 38.0326 61.8084 41.9879 64.4149 43.5001C67.6052 45.3509 65.5816 50.2362 62.0171 49.289C59.1047 48.5152 56.8642 51.8684 58.6936 54.2629C60.9327 57.1937 57.1937 60.9327 54.2629 58.6936C51.8684 56.8642 48.5152 59.1047 49.289 62.0171C50.2362 65.5816 45.3509 67.6052 43.5001 64.4149C41.9879 61.8084 38.0326 62.5952 37.633 65.582C37.1439 69.2376 31.8561 69.2376 31.367 65.582C30.9674 62.5952 27.0121 61.8084 25.4999 64.4149C23.6491 67.6052 18.7638 65.5816 19.711 62.0171C20.4848 59.1047 17.1316 56.8642 14.7371 58.6936C11.8063 60.9327 8.06727 57.1937 10.3064 54.2629C12.1358 51.8684 9.89531 48.5152 6.98295 49.289C3.4184 50.2362 1.39484 45.3509 4.58508 43.5001C7.1916 41.9879 6.40484 38.0326 3.41805 37.633C-0.237617 37.1439 -0.237619 31.8561 3.41804 31.367C6.40484 30.9674 7.1916 27.0121 4.58508 25.4999C1.39484 23.6491 3.4184 18.7638 6.98295 19.711C9.89531 20.4848 12.1358 17.1316 10.3064 14.7371C8.06727 11.8063 11.8063 8.06727 14.7371 10.3064C17.1316 12.1358 20.4848 9.89531 19.711 6.98295C18.7638 3.4184 23.6491 1.39484 25.4999 4.58508C27.0121 7.1916 30.9674 6.40484 31.367 3.41805Z" fill="#F48012"/>
     </svg></div>
@@ -2404,7 +2608,8 @@ a {
           <div class="stepnumber">step 1</div>
           <div class="edutype">БАЗОВОЕ МЕДИЦИНСКОЕ <br>ОБРАЗОВАНИЕ</div>
           <div class="almamater">ПСПБГМУ им. Павлова (Санкт-<br>Петербург)</div>
-          <div><img class="edu-button" src="edu-button.png" alt="Click here to see diploma"></div>
+          <div><a href="https://raw.githubusercontent.com/MessaeX/psyslivka2.0/main/diploma1.png" target="_blank"><img class="edu-button" src="edu-button.png" alt="Click here to see diploma"></a></div>
+          
         </div>
         <div class="box">
           <img class="vertical-edu-left" src="edu-vertical.svg">
@@ -2414,7 +2619,7 @@ a {
           <div class="edutype">ОРДИНАТУРА<br> ПО СПЕЦИАЛЬНОСТИ <br>
             &#171;ПСИХИАТРИЯ&#187;</div>
           <div class="almamater">НМИЦ им. Бехтерева (Санкт-<br>Петербург)</div>
-          <div><img class="edu-button" src="edu-button.png" alt="Click here to see diploma"></div>
+          <div><a href="https://raw.githubusercontent.com/MessaeX/psyslivka2.0/main/diploma2.png" target="_blank"><img class="edu-button" src="edu-button.png" alt="Click here to see diploma"></a></div>
         </div>
         <div class="box">
        
@@ -2426,7 +2631,7 @@ a {
           <div class="stepnumber">step 3</div>
           <div class="edutype">ПЕРЕПОДГОТОВКА <br>ПО СПЕЦИАЛЬНОСТИ <br>&#171;ПСИХОТЕРАПИЯ&#187;</div>
           <div class="almamater">ИПМП им. Карвасарского<br> (Санкт-Петербург)</div>
-          <div><img class="edu-button" src="edu-button.png" alt="Click here to see diploma"></div>
+          <div><a href="https://raw.githubusercontent.com/MessaeX/psyslivka2.0/main/diploma3.png" target="_blank"><img class="edu-button" src="edu-button.png" alt="Click here to see diploma"></a></div>
         </div>
         <div class="box">
           <img class="vertical-edu-left" src="edu-vertical.svg">
@@ -2436,7 +2641,7 @@ a {
           <div class="stepnumber">step 4</div>
           <div class="edutype">ПЕРЕПОДГОТОВКА <br>ПО СПЕЦИАЛЬНОСТИ <br>&#171;ПСИХОЛОГИЯ&#187;</div>
           <div class="almamater">АНО ДПО &#171;НАДПО&#187; <br>(Санкт-Петербург)</div>
-          <div><img class="edu-button" src="edu-button.png" alt="Click here to see diploma"></div>
+          <div><a href="https://raw.githubusercontent.com/MessaeX/psyslivka2.0/main/diploma4.jpg" target="_blank"><img class="edu-button" src="edu-button.png" alt="Click here to see diploma"></a></div>
         </div>
       </div>
   
@@ -2874,13 +3079,13 @@ a {
           <div>ЧТО ТАКОЕ ПСИХОТЕРАПИЯ?</div>
           <div class="faq-plus-button"><img class="faq-plus" src="faq-plus.svg" alt="Click here to open" id="faq-plus1"></div>
       </div>
-        <div><b>01/ Персонализированная</b><br>техника, которая представляет собой<br>нечто среднее между техникой<br>планируемых изменений отношений,<br>чувств и поведения человек,<br>и познавательным процессом,<br>который, в отличие от любого<br>другого, ставит человека лицом<br>к лицу с его внутренними<br>конфликтами и противоречиями;
+        <div><b>01/ Персонализированная</b><br> техника, которая представляет собой<br> нечто среднее между техникой<br> планируемых изменений отношений,<br> чувств и поведения человек,<br>и познавательным процессом,<br> который, в отличие от любого<br> другого, ставит человека лицом<br> к лицу с его внутренними<br> конфликтами и противоречиями;
         <br><br>
-        <b>02/Средство,</b> использующее<br>вербальные методики<br>и межличностные взаимоотношения<br>с целью помочь человек<br>в моидфикации отношений<br>и поведения, которые интеллектуально, социально или<br>эмоционально являются негативными;
+        <b>02/Средство,</b> использующее<br> вербальные методики<br> и межличностные взаимоотношения<br> с целью помочь человек<br> в моидфикации отношений<br> и поведения, которые интеллектуально, социально или<br> эмоционально являются негативными;
         <br><br>
-        <b>03/Длительное межличностное<br>взаимодействие между двумя или<br>более людьми,</b> один из которых<br>специализировался по коррекции<br>человеческих взаимоотношений;
+        <b>03/Длительное межличностное<br> взаимодействие между двумя или<br>более людьми,</b> один из которых<br> специализировался по коррекции<br> человеческих взаимоотношений;
         <br><br>
-        <b>04/Система лечебных<br>воздействий</b> на психику и через<br>психику на организм человека
+        <b>04/Система лечебных<br> воздействий</b> на психику и через<br> психику на организм человека
         
         </div>
       </div>
@@ -3201,29 +3406,56 @@ a {
 
   </div> <!-- To end content -->
 
-  <script>
-    /*window.onload = Navbar; */
-    function Navbar() {
-  let x = document.getElementById("navbar-side");
-  let y = document.getElementById("navbar-icon");
-  let c = document.getElementById("navbar-x");
+ 
 
-  if (x.style.display === "none" &&
-      y.style.display === "block" &&
-      c.style.display === "none")
-     
-    {
-    x.style.display = "flex",
-    y.style.display = "none";
-    c.style.display = "block";
-   
-  } else {
-    x.style.display = "none";
-    y.style.display = "block";
-    c.style.display = "none";
+  <script>
     
+    /*window.onload = Navbar; */
+    const headnavbar = document.querySelector(".navbar")
+let toggleCount = 0;
+function navbarToggle(idx,idy,idc,idd,ide,idb,idk) {
+  if(toggleCount === 0) {
+    let x = document.getElementById(idx);
+    let y = document.getElementById(idy);
+    let c = document.getElementById(idc);
+    let d = document.getElementById(idd);
+    let e = document.getElementById(ide);
+    let b = document.getElementById(idb);
+    let k = document.getElementById(idk);
+
+    x.classList.toggle('navbar-active');
+    y.classList.toggle('navbar-x-active');
+    c.classList.toggle('navbar-icon-hidden');
+    d.classList.toggle('navbar-submenu1-active');
+    e.classList.toggle('navbar-submenu2-active');
+    b.classList.toggle('navbar-book-in-active');
+    k.classList.toggle('navbar-button-active')
+
+    headnavbar.classList.add('add')
+    toggleCount = 1;
   }
-}
+  else if(toggleCount === 1) {
+    let x = document.getElementById(idx);
+    let y = document.getElementById(idy);
+    let c = document.getElementById(idc);
+    let d = document.getElementById(idd);
+    let e = document.getElementById(ide);
+    let b = document.getElementById(idb);
+    let k = document.getElementById(idk);
+    
+    x.classList.toggle('navbar-active');
+    y.classList.toggle('navbar-x-active');
+    c.classList.toggle('navbar-icon-hidden');
+    d.classList.toggle('navbar-submenu1-active')
+    e.classList.toggle('navbar-submenu2-active')
+    b.classList.toggle('navbar-book-in-active');
+    k.classList.toggle('navbar-button-active')
+   
+
+    headnavbar.classList.remove('add')
+    toggleCount = 0;
+    }
+  }
 
 
 window.addEventListener('load', function() {
@@ -3388,6 +3620,198 @@ function accordionFaq(idx,idy,idc,idf,idb) {
    
   }
 }
+
+function disIdea(idx) {
+  let x = document.getElementById(idx);
+  if (x.style.display === "flex") {
+    x.style.display = "none";
+  } 
+}
+
+
+
+
+
+
+if (window.innerWidth >= 800) {
+anime({
+  targets: '.ball55',
+  keyframes: [
+{translateY: 1250},
+{translateY: 1130, easing: 'easeInOutQuad',duration:300},
+{translateY: 1250,}
+  ],
+  duration: 1200,
+  delay: 1700,
+  easing: 'linear',
+  rotate: {
+    value: 360,
+    duration: 1300,
+  }
+});
+anime({
+  targets: '.unhappy',
+  keyframes: [
+    {translateY: 1225},
+    {translateX: 20, translateY: 1255}
+
+  ],
+  duration: 1100,
+  delay: 2300,
+  rotate: 24.37,
+  easing: 'linear'
+});
+anime({
+  targets: '.ball44',
+  keyframes: [
+  {translateY: 1115, duration: 900, easing: 'linear' },
+  {translateY: 1275, translateX: 340,  easing: 'linear'},
+  {translateY: 1310, translateX: 390,  easing: 'linear'},
+  {translateY: 1310, translateX: 350,  easing: 'linear'}
+  ],
+  rotate: {
+    value:360,
+    duration: 1700,
+    easing: 'linear',
+  },
+ 
+  delay: 2700,
+  easing: 'linear',
+});
+
+anime({
+  targets: '.looser',
+  keyframes: [
+    {translateY: 1100, rotate: 90},
+    {translateY: 1290, rotate: 14,},
+  ],
+  duration: 1500,
+  easing: 'linear',
+  delay: 3500,
+});
+anime({
+  targets: '.follow',
+  keyframes: [
+    {translateY: 1100, rotate: 90},
+    {translateY: 1240, rotate: 40.56}
+  ],
+  duration: 1500,
+  delay: 4600,
+  easing: 'linear',
+});
+anime({
+  targets: '.ball77',
+  keyframes: [
+    {translateY: 1202},
+    {translateY: 1226, translateX: 110,}
+  ],
+  duration: 1500,
+  delay: 4300,
+  easing: 'linear',
+  rotate: {
+    value: 360,
+    duration: 1600,
+    easing: 'linear'
+  }
+
+});
+anime({
+  targets: '.bye',
+  keyframes: [
+    {translateY: 1130},
+    {translateY: 1180, translateX: 160,}
+
+  ],
+  delay: 5000,
+  duration: 1500,
+  rotate: -17.71,
+  easing: 'linear'
+});
+anime({
+  targets: '.ball33',
+  keyframes: [
+    {translateY: 1075},
+    {translateY: 1175, translateX: -335},
+    {translateY: 1190, duration: 100}
+  ],
+  delay: 6000,
+  duration: 1300,
+  easing: 'linear',
+  rotate: {
+    value: 360,
+    duration: 1400,
+    easing: 'linear'
+  }
+  
+
+});
+anime({
+  targets: '.ideal',
+ keyframes: [
+  {translateY:1030, rotate: -70},
+  {translateY:1133, rotate: 9,}
+ ],
+  delay: 6500,
+  duration: 1000,
+  easing: 'linear'
+});
+anime({
+  targets: '.unloved',
+  keyframes: [
+    {translateY: 1020, rotate: -80,},
+    {translateY: 1089,translateX: 50, rotate: 18.49, delay:50}
+],
+delay: 6800,
+  duration: 1300,
+  easing: 'linear'
+});
+anime({
+  targets: '.alone',
+translateY: 1057,
+  rotate: -40,
+  duration: 1500,
+  delay: 6600,
+  easing: 'linear'
+ 
+ 
+});
+anime({
+  targets: '.ball66',
+  keyframes: [
+    {translateY: 1030,},
+    {translateY: 1077, translateX: 100},
+    {translateY:1105,translateX:125, duration: 300}
+  ],
+  delay: 7800,
+  duration: 1500,
+  easing: 'linear',
+rotate: {
+  value: 360,
+  duration: 1600,
+  easing: 'linear'
+}
+});
+
+
+
+
+anime({
+  targets: '.ball11',
+
+});
+
+anime({
+  targets: '.ball22',
+
+});
+
+
+
+}
+
+
+
+
 
 
 
