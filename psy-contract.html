@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Психотерапевтический контракт</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js" integrity="sha512-aNMyYYxdIxIaot0Y1/PLuEu3eipGCmsEUBrUq+7aVyPGMFH8z0eTP0tkqAvv34fzN6z+201d3T8HPb1svWSKHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <style>
+
+
+* {
+      margin: 0;
+      padding: 0;
+
+    }
+    html {
+      background: #ECE8DE;
+    }
+    body {
+      font-family: "onest", sans-serif;
+      background: #ECE8DE;
+      color: #272727;
+    }
+    body::-webkit-scrollbar {
+      width: 10px;
+    }
+    body::-webkit-scrollbar-thumb {
+      background: #496141;
+    }
+    body::-webkit-scrollbar-track-piece {
+      background: #ECE8DE;
+    }
+    a {
+  text-decoration: none;
+  color: #272727;
+}
+    .surname {
+      color: #000000;
+      font-family: "onest", sans-serif;
+      font-weight: bold;
+    }
+
+    header, .main-block, .ending,.all-rights {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ECE8DE;
+      background-origin: border-box;
+      padding-top: 30px;
+    }
+
+    .navbar-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 5px;
+      margin-inline: 12px;
+      cursor: pointer;
+    }
+    .navbar-active {
+
+border-radius: 30px;
+padding-inline: 24px;
+animation: navbarAnim ease-in-out 0.1s;
+}
+@keyframes navbarAnim {
+  0% {width: 0; height: 0;}
+  100% {width: 300px; height: 400px;}
+  }
+
+.navbar {
+width: 60px;
+height: 60px;
+
+position: fixed;
+top: 20px;
+right: 15px;
+}
+.navbar.add {
+background-color:  #E2E3D2;
+width: 300px;
+height: 450px;
+z-index: 5000;
+}
+.navbar-button {
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+background-color: #e2e3d2;
+width: 220px;
+height: 60px;
+border-radius: 30px;
+z-index: 5000;
+}
+
+.navbar-x {
+display: none;
+}
+.navbar-x-active {
+display: flex;
+font-size: 20px;
+font-weight: bold;
+
+}
+.navbar-icon-hidden {
+display: none;
+}
+ul,
+li,
+a {
+text-decoration: none;
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.navbar-side1 {
+display: grid;
+grid-template-columns: 1fr 1fr;
+padding-top: 8px;
+column-gap: 5px;
+row-gap: 5px;
+}
+.div-for-end {
+display: flex;
+align-items: flex-end;
+justify-content: flex-end;
+}
+.navbar-heading1 {
+font-weight: bold;
+}
+.navbar-submenu1,
+.navbar-submenu2 {
+padding-top: 24px;
+visibility: hidden;
+}
+.navbar-submenu1-active,
+.navbar-submenu2-active {
+visibility: visible;
+}
+  .navbar-side-border {
+position: absolute;
+border: 1px solid;
+border-top: none;
+border-left: none;
+border-right:none;
+top: 0px;
+left: 0;
+width: 160px;
+}
+
+  .navbar-side li {
+    margin-left: 10px;
+    color: #272727;
+    font-size: 30px;
+    font-weight: bold;
+    text-indent: 40px;
+    margin-top: 5px;
+  }
+
+
+  .book-in,.contact-button {
+    margin-top: 20px;
+    margin-left: 40px;
+    width: 193px;
+    height: 57px;
+    border-radius: 30px;
+    background-color: #496141;
+    color: #F7F5EF;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+  }
+  .contact-button a {
+    color: #F7F5EF;
+  }
+  
+  .navbar-book-in {
+    display: none;
+
+  }
+  .navbar-book-in-active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 137px;
+    height: 44px;
+    border-radius: 30px;
+    background-color: #496141;
+    color: #F7F5EF;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    margin-right: 20px;
+  }
+  
+.ten-block {
+  padding-top: 100px;
+  background-color: #FDFAF0;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.get-in-touch {
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 47.5px;
+  font-weight: bold;
+  background-color: #FDFAF0;
+  
+}
+
+.whole-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 40px;
+
+}
+.contact-heading {
+  display: block;
+  text-align: left;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 20px;
+  padding-bottom: 4px;
+}
+
+
+input, select, textarea {
+  width: 297px;
+  height: 16px;
+  border-radius: 10px;
+  padding: 15px;
+  border: 1px solid #272727;
+  background-color: #FDFAF0;
+  font-family: "onest", sans-serif;
+  font-size: 16px;
+}
+textarea {
+  padding: 16px 0px 0px 16px;
+  width: 311px;
+  height: 60px;
+  color: #858585;
+}
+select {
+  width: 329px;
+  height: 53px;
+}
+.checkbox-comment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px;
+  gap: 10px;
+}
+ .checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  border-style: solid;
+  background-color: #FDFAF0;
+}
+
+.rational {
+  padding-top: 120px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.rational1,.rational2,.rational3,.rational4 {
+  padding: 16px;
+  border-radius: 24px;
+  height: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 18px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.rational4 {
+  position: absolute;
+  display: none;
+  color: #6C3B0D;
+  background-color: #F2E0CF;
+  width: 320px;
+}
+.rational1 {
+  background-color: #D1D3B9;
+  color: #394B33;
+  transform: rotate(-19.41deg);
+  width: 268px;
+  position: absolute;
+  top: 38px;
+}
+.rational-ball1-img {
+  position: absolute;
+  left: 55px;
+  top: 119px;
+  width: 70px;
+  height: 70px;
+}
+.rational2 {
+  background-color: #DDCFBB;
+  color: #553829;
+  transform: rotate(2.2deg);
+  position: absolute;
+  top: 187px;
+  width: 320px;
+}
+.rational-ball2-img {
+  position: absolute;
+  right: 70px;
+  top: 287px;
+  width: 80px;
+  height: 80px;
+}
+.rational3 {
+  background-color: #F2E0CF;
+  color: #6C3B0D;
+  transform: rotate(-17.79deg);
+  position: absolute;
+  top: 340px;
+  width: 300px;
+
+}
+.rational-ball3-img {
+  position: absolute;
+  left: 30px;
+  top: 430px;
+  width: 70px;
+  height: 70px;
+}
+
+.ending {
+  padding-top: 400px;
+  height: 400px;
+  background-color: rgb(253, 250, 240)
+}
+/*Code for ending boxes */
+.boxesEN {
+  --spacing: 5px;
+  display: grid;
+  grid-template-columns: 164px 164px;
+  height: 300px;
+  gap: var(--spacing);
+  padding-top: 30px;
+  padding-left: 15px;
+}
+.boxEND {
+  padding-top: 24px;
+  padding-left: 24px;
+}
+
+.boxesEN .boxEN,.boxesEN .boxEND {
+  position: relative;
+}
+.boxEN {
+  padding-top: 24px;
+}
+
+.boxesEN .boxEN::before, .boxesEN .boxEN::after,.boxesEN .boxEND::before,.boxesEN .boxEND::after {
+  pointer-events: none;
+  position: absolute;
+  content: "";
+}
+.boxesEN .boxEN::before {
+  inset: calc((var(--spacing) * -1) / 2) var(--spacing);
+  border-top: 1px solid currentColor;
+}
+.boxesEN .boxEN::after {
+  inset: var(--spacing) -2px;
+  border-right: 1px solid currentColor;
+}
+
+.boxesEN .boxEND::before {
+  inset: calc((var(--spacing) * -1) / 2) var(--spacing);
+  border-top: 1px solid currentColor;
+}
+
+.boxesEN .boxEND::after {
+  inset: var(--spacing) 0;
+  border-right: none
+}
+
+/*Code for ending borders ends*/
+.service-ball {
+  width: 48px;
+  height: 48px;
+  animation: rotate 5s linear infinite;
+}
+
+.all-rights {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: #858585;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ background-color: rgb(253, 250, 240);
+
+}
+.surnameEN {
+  color: #272727;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.messenger,.confident {
+  color: #272727;
+  font-weight: 500;
+  font-size: 12px;
+  width: 133px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.confident {
+  width: 156px;
+}
+.collab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+.collab a {
+  color: #858585;
+}
+.boxEN{
+  padding-top: 24px;
+  padding-right: 8px;
+
+}
+.boxEN div, .boxEND div {
+  padding-top: 20px;
+}
+.boxEND li {
+  padding-top: 5px;
+  color: #272727;
+  font-weight: 500;
+  font-size: 12px;
+}
+.span1 {
+  text-decoration: underline;
+}
+.ending-desktop {
+  display: none;
+  background-color: #FDFAF0;
+
+}
+.main-block {
+  padding-top: 140px;
+  padding-bottom: 50px;
+}
+.heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+  text-transform: uppercase;
+}
+h1 {
+  font-size: 21px;
+}
+.contract-star {
+  width: 55px;
+  height: 55px;
+  animation: rotate 5s linear infinite;
+}
+.number {
+  width: 40px;
+  height: 40px;
+  background-color: #D1D3B9;
+  color: #394B33;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-weight: bold;
+  margin-right: 12px;
+}
+.line {
+  display: flex;
+  padding-bottom: 25px;
+
+}
+.text {
+  width: 250px;
+  line-height: 22px;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+  @media only screen and (min-width: 768px) {
+  header, .main-block, .ending,.ending-desktop,.all-rights {
+      padding-left: 36px;
+      padding-right: 36px;
+    }
+h1 {
+  font-size: 36px;
+}
+.heading {
+  width: 600px;
+  justify-content: center;
+  align-items: flex-start;
+}
+.text {
+  width: 550px;
+}
+.ending {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+}
+@media only screen and (min-width: 1440px) {
+  header, .main-block, .ending,.ending-desktop,.all-rights {
+      padding-left: 72px;
+      padding-right: 72px;
+    }
+    header {
+      padding-top: 52px;
+    }
+
+    .navbar {
+  width: 196px;
+  height: 60px;
+  padding-inline: 24px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+.navbar.add {
+  background-color:  #E2E3D2;
+  width: 300px;
+  height: 450px;
+}
+    .navbar-side {
+      width: 310px;
+      height: 380px;
+      position: static;
+      flex-direction: column;
+      border-radius: 30px;
+      padding: 30px;
+      margin: 0;
+      gap: 10px;
+    }
+
+    .navbar-side li {
+      font-size: 16px;
+      width: 125px;
+      text-indent: 0;
+      text-align: center;
+    }
+    .book-in {
+      display: none
+    }
+    .first-block {
+      width: auto;
+      height: auto;
+    }
+    
+    .navbar-button {
+      width: 310px;
+      height: 60px;
+    }
+    .navbar-button-active {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+    .navbar-x-active {
+      padding-left: 0px;
+      cursor: pointer;
+    }
+    .navbar-book-in {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 137px;
+      height: 44px;
+      border-radius: 30px;
+      background-color: #496141;
+      color: #F7F5EF;
+      font-size: 16px;
+      font-weight: 500;
+      border: none;
+      margin-right: 10px;
+      
+    }
+    .div-for-end {
+      flex-direction: row;
+    }
+
+
+
+    .heading {
+      width: 1050px;
+    }
+    h1 {
+      font-size: 65px;
+    }
+    .contract-star {
+      width: 80px;
+      height: 80px;
+    }
+    .text {
+      width: 694px;
+    }
+
+
+
+
+    
+    .get-in-touch {
+      font-size: 188px;
+      padding-top: 50px;
+    }
+
+    .ten-block {
+      display: grid;
+      grid-template-columns: 550px 700px;
+      padding-top: 20px;
+    }
+    .super-whole-contact {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    .whole-contact {
+      display: grid;
+      grid-template-columns: 255px 255px;
+      column-gap: 16px;
+    }
+    input {
+      width: 225px;
+    }
+    select {
+      width: 255px;
+      height: 48px;
+    }
+    .contact-input {
+      width: 255px;
+    }
+    textarea {
+      width: 510px;
+    }
+    .checkbox-comment br {
+      display: none;
+    }
+    .book-in {
+      margin-left: 0;
+      margin-top: 33px;
+    }
+    .rational {
+      padding-top: 0;
+      height: 500px;
+    }
+    .rational br {
+      display: none;
+    }
+    .rational1 {
+      top: 200px;
+      left: 70px;
+      transform: rotate(-16.55deg);
+      width: 362px;
+      height: 53px;
+    }
+    .rational-ball1-img {
+      top: 220px;
+      left: 470px;
+    }
+    .rational2 {
+      top: 300px;
+      left: 330px;
+      transform: rotate(9deg);
+      width: 328px;
+      height: 74px;
+    }
+    .rational-ball2-img {
+      top: 310px;
+      left: 160px;
+     
+    }
+    .rational3 {
+      top: 400px;
+      left: 100px;
+      transform: rotate(0deg);
+      width: 345px;
+      height: 54px;
+    }
+    .rational-ball3-img {
+      left: 500px;
+      top: 410px;
+    }
+    .rational4 {
+      display: flex;
+      top: 160px;
+      left: 410px;
+      transform: rotate(39deg);
+      width: 288px;
+      height: 54px;
+    }
+    .ending {
+      display: none;
+    }
+    .ending-desktop {
+      display: grid;
+      grid-template-columns: 192px 426px 408px 280px;
+      height: 110px;
+      padding-top: 100px;
+  
+
+    }
+    .navbar-ending,.messenger-ending,.confident-ending {
+      font-size: 12px;
+      font-weight: 500;
+      padding-top: 24px;
+      justify-content: center;
+      justify-self: center;
+      position: relative;
+      padding-inline: 48px;
+     
+    }
+    .surname-ending {
+      padding-top: 24px;
+      padding-right: 48px;
+      position: relative;
+    }
+    .navbar-ending {
+      display: grid;
+      grid-template-columns: 1fr 1fr 135px;
+      column-gap: 20px;
+      line-height: 20px;
+
+    }
+
+    .navbar-ending li {
+      list-style: none;
+    }
+    .messenger-ending {
+      display: flex;
+      justify-content: space-around;
+      width: 320px;
+
+    }
+    .confident-ending {
+      display: flex;
+      width: 280px;
+
+    }
+    .confident-ending br {
+      display: none;
+    }
+    .all-rights {
+      justify-content: space-between;
+      padding-top: 32px;
+      padding-bottom: 24px;
+      padding-inline: 72px;
+      background-color: #FDFAF0;
+    }
+    .collab {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .surname-ending-border-top,.surname-ending-border-right,.navbar-ending-border-top,.navbar-ending-border-right,.messenger-ending-border-top,.messenger-ending-border-right,.confident-ending-border-top {
+      border-style: solid;
+      border-bottom: none;
+      border-right: none;
+      border-left: none;
+      border-top-width: 1px;
+      position: absolute;
+    }
+    .surname-ending-border-top,.navbar-ending-border-top,.messenger-ending-border-top,.confident-ending-border-top {
+      top: 0;
+    
+    }
+    .surname-ending-border-right,.navbar-ending-border-right,.messenger-ending-border-right,.confident-ending-border-right {
+      width: 100px;
+      transform: rotate(90deg);
+      top: 60px;
+ 
+    }
+    .surname-ending-border-top {
+      width: 184px;
+     
+    }
+    .surname-ending-border-right {
+     right: -49px
+    }
+    .navbar-ending-border-top {
+      width: 410px;
+      left: 8px;
+    }
+    .navbar-ending-border-right {
+      right: -50px
+    }
+    .messenger-ending-border-top {
+      width: 392px;
+    }
+    .messenger-ending-border-right {
+      right: -47px
+    }
+    .confident-ending-border-top {
+      width: 262px;
+    }
+  
+
+    
+  }
+  @media only screen and (min-width: 1920px) {
+  header,.main-block,.ending,.ending-desktop,.all-rights {
+    padding-inline: 72px;
+  }
+  .boxes {
+    grid-template-columns: 650px 650px;
+ 
+  }
+}
+@media only screen and (min-width: 2560px) {
+  header,.main-block,.ending,.ending-desktop,.all-rights {
+    padding-inline: 20vw;
+  }
+}
+
+    </style>
+</head>
+<body>
+  
+  <header>
+   <div class="surname"> <a class="main-link" href="https://messaex.github.io/psyslivka2.0/" target="_blank">АНДРЕЙ СЛИВКА.</a>
+
+    </div>
+    
+  <div class="navbar" id="navbar">
+    <div class="div-for-end">
+      <div class="navbar-button" id="navbar-button">
+        <img class="navbar-icon" src="ic_round-menu.svg" id="navbar-icon" alt="Click me" onclick="navbarToggle('navbar','navbar-x','navbar-icon','navbar-submenu1','navbar-submenu2','navbar-book-in','navbar-button')"/>
+        
+        <a href="https://n819238.yclients.com/" target="_blank" title="Ссылка на YClients">
+          <div class="navbar-book-in" id="navbar-book-in"> Записаться</div>
+        </a>
+
+        <div class="navbar-x" id="navbar-x" onclick="navbarToggle('navbar','navbar-x','navbar-icon','navbar-submenu1','navbar-submenu2','navbar-book-in','navbar-button')">&#10005;</div>
+        
+          
+      </div>
+    </div>
+
+    <div class="navbar-submenu1" id="navbar-submenu1">
+      <div class="navbar-heading1">ГЛАВНАЯ</div>
+      <ul class="navbar-side1" id="navbar-side1">
+        <li onclick="Navbar()"><a href="#second-block">ОБО МНЕ</a></li>
+        <li onclick="Navbar()"><a href="#third-block">ОБРАЗОВАНИЕ</a></li>
+        <li onclick="Navbar()">
+          <a href="#fourth-block">ПРИНЦИПЫ РАБОТЫ</a>
+        </li>
+        <li onclick="Navbar()"><a href="#fifth-block">ЗАПРОСЫ</a></li>
+        <li onclick="Navbar()"><a href="#sixth-block">О СЕССИИ</a></li>
+        <li onclick="Navbar()"><a href="#seventh-block">УСЛУГИ</a></li>
+        <li onclick="Navbar()"><a href="#eight-block">ОТЗЫВЫ</a></li>
+        <li onclick="Navbar()" style="padding-bottom: 5px">
+          <a href="#nine-block">FAQ</a>
+        </li>
+      </ul>
+    </div>
+    <div class="navbar-submenu2" id="navbar-submenu2">
+      <div class="navbar-heading1">КЛИЕНТАМ</div>
+      <div class="navbar-side1">
+        <ul>
+          <li onclick="Navbar()">
+            <a
+              href="#eight-block"
+              style="position: relative; padding-top: 5px"
+              >ПСИХОТЕРАПЕВТИЧЕСКИЙ КОНТРАКТ
+            </a>
+          </li>
+          <li>БАЗОВЫЕ ТЕХНИКИ КПТ</li>
+          <li>КОГНИТИВНЫЕ ОШИБКИ</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+   
+  </ul>
+  </header>
+
+
+<div class="main-block">
+  <div class="heading">
+    <h1>Психотерапевтический контракт</h1>
+    <div>
+      <img class="contract-star" src="contract-star.svg">
+    </div>
+  </div>
+  <div class="contract">
+  
+    <div class="line">
+      <div class="number">
+        01
+      </div>
+      <div class="text">
+        Продолжительность психотерапевтической сессии 55 минут;
+      </div>
+    </div>
+    <div class="line">
+      <div class="number">
+        02
+      </div>
+      <div class="text">
+        Обычная частота сессий — 1 раз в неделю, однако возможно оговорить и другую частоту;
+      </div>
+    </div>
+    <div class="line">
+      <div class="number">
+        03
+      </div>
+      <div class="text">
+        Психотерапевт и клиент обязуются приходить на сессию трезвыми;
+      </div>
+    </div>
+    <div class="line">
+      <div class="number">
+        04
+      </div>
+      <div class="text">
+        В случае неявки клиентом на сессию без предупреждения (за 12 часов), пропущенная сессия должна быть оплачена в полном объеме;
+      </div>
+    </div>
+    <div class="line">
+      <div class="number">
+        05
+      </div>
+      <div class="text">
+        В случае пропуска сессии психотерапевтом, без предупреждения (за 12 часов) клиента, последующая сессия для клиента проводится бесплатно;
+      </div>
+    </div>
+    <div class="line">
+      <div class="number">
+        06
+      </div>
+      <div class="text">
+        Общение клиента и психотерапевта вне времени сессии стремится к минимуму, общение по телефону/в мессенджерах возможно лишь для того, чтобы договориться о времени и дате сессии;
+      </div>
+    </div>
+    <div class="line">
+      <div class="number">
+        07
+      </div>
+      <div class="text">
+        Между клиентом и психотерапевтом не может быть никаких других отношений кроме рабочих;
+      </div>
+    </div>
+    <div class="line">
+      <div class="number">
+        08
+      </div>
+      <div class="text">
+        На время сессии оба участника процесса обязуются обеспечить условия для совместной работы (не отвлекаться на другие дела, телефон);
+      </div>
+    </div>
+    <div class="line">
+      <div class="number">
+        09
+      </div>
+      <div class="text">
+        Сессии должны быть «герметичными», то есть другие лица в помещениях, кроме психотерапевта и клиента, должны отсутствовать, кроме ситуаций с иными договоренностями;
+      </div>
+    </div>
+    <div class="line">
+      <div class="number">
+        10
+      </div>
+      <div class="text">
+        Психотерапевт не может принимать от клиента подарки или иные материальные блага кроме оплаты за психотерапию;
+      </div>
+    </div>
+    <div class="line">
+      <div class="number">
+        11
+      </div>
+      <div class="text">
+        Оплата производится после каждой сессии (возможна оплата авансом);
+      </div>
+    </div>
+    <div class="line">
+      <div class="number">
+        12
+      </div>
+      <div class="text">
+        Величина платы за сессию является постоянной на время всего оговоренного курса психотерапии;
+      </div>
+    </div>
+    <div class="line">
+      <div class="number">
+        13
+      </div>
+      <div class="text">
+        Психотерапевт может отказать в назначенной сессии, если клиент не оплатил предыдущую сессию;
+      </div>
+    </div>
+    <div class="line">
+      <div class="number">
+        14
+      </div>
+      <div class="text">
+        Психотерапевт вправе отказать в предоставлении клиенту справок, выписок о проводимой терапии в судебные и иные инстанции, если такая возможность не оговаривалась вначале;
+      </div>
+    </div>
+    <div class="line">
+      <div class="number">
+        15
+      </div>
+      <div class="text">
+        Несоблюдение настоящих правил со стороны клиента может повлечь отказ психотерапевта от проведения дальнейшей психотерапии;
+      </div>
+    </div>
+    <div class="line">
+      <div class="number">
+        16
+      </div>
+      <div class="text">
+        В случае сообщения клиентом в ходе психотерапии сведений о нарушении уголовного кодекса Российской Федерации, психотерапевт вправе не соблюдать врачебную тайну и обратиться в органы полиции, а также если жизни и физическому здоровью психотерапевта каким-либо образом появляется прямая угроза в ходе психотерапии со стороны клиента.
+      </div>
+    </div>
+
+
+
+
+  </div>
+</div>
+
+
+  
+<div class="get-in-touch">GET IN TOUCH</div>
+<div class="ten-block" id="ten-block"> <!-- 10 block (GET IN TOUCH) starts here -->
+<div class="super-whole-contact">
+  <div class="whole-contact">
+<div>
+      <div class="contact-heading">
+        ВАШЕ ИМЯ *
+      </div>
+      <div class="contact-input">
+        <input type="text" placeholder="Анна">
+      </div>
+    </div>
+    <div>
+      <div class="contact-heading">
+        НОМЕР ТЕЛЕФОНА *
+      </div>
+      <div class="contact-input">
+        <input type="number" placeholder="+7 (999) 999-99-99">
+      </div>
+    </div>
+    <div>
+      <div class="contact-heading">
+        EMAIL *
+      </div>
+      <div class="contact-input">
+        <input type="email" placeholder="annaorlova@gmail.com">
+      </div>
+    </div>
+    <div>
+      <div class="contact-heading">
+        СПОСОБ СВЯЗИ *
+      </div>
+      <div class="contact-input">
+        <select>
+          <option value="Telegram">Telegram</option>
+          <option value="WhatsApp">WhatsApp</option>
+          </select>
+        </div>
+    </div>
+
+
+
+  </div> 
+  <div class="contact-heading">
+    КОММЕНТАРИЙ
+  </div>
+  <div class="contact-input">
+    <textarea>Вопросы, уточнения, пожелания</textarea>
+  </div>
+  <div class="checkbox-comment">
+    <input type="checkbox" checked class="checkbox">
+    <div>Я согласен (-на) с политикой <br>
+      конфиденциальности</div>
+  </div>
+  <button class="contact-button"><a href="mailto:midvay@mail.ru">Отправить</a></button>
+</div>
+
+
+
+<div class="rational">
+  <div class="rational1">
+    Периодически я могу испытывать <br>одиночество, но это не означает, что<br>я одинок. Есть люди, которым я важен <br>и которые желают мне лучшего.
+  </div>
+  <div class="rational-ball1">
+    <img src="rational-ball1.png" alt="Another star" class="rational-ball1-img">
+  </div>
+  <div class="rational2">
+    Ошибки и поражения — естественная часть <br>жизни, без этого никак. Нет людей, которые <br>всегда выполняют все задачи. На самом деле,<br> я хороший как сотрудник, так и человек.
+  </div>
+  <div class="rational-ball2">
+    <img src="rational-ball2.png" alt="Another star" class="rational-ball2-img">
+  </div>
+  <div class="rational3">
+    Отношения — это конечно важная сфера <br>жизни, но не единственная. Есть еще<br>много интересных вещей в жизни, которые <br>мне нравятся
+  </div>
+  <div class="rational-ball3">
+    <img src="rational-ball3.png" alt="Another star" class="rational-ball3-img">
+  </div>
+  <div class="rational4">
+    Мне бы хотелось, чтобы все получалось идеально, но так не бывает. Это нормально, если что-то не получается.
+  </div>
+
+</div>
+
+</div> <!-- Eleven block (RATIONAL THOUGHTS) ends here content -->
+
+
+<div class="ending" id="ending"> <!-- Ending starts here -->
+  <div class="boxesEN">
+    <div class="boxEN">
+      <div class="surnameEN">АНДРЕЙ СЛИВКА.</div>
+      <div class="messenger">INST &#8226; <a href="https://t.me/psychotherapistslivka" target="_blank" title="Telegram">TG</a> &#8226; 
+        <a href="https://api.whatsapp.com/send/?phone=79817854087&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp">WHATS</a> </div>
+      <div class="confident">ПОЛИТИКА<br>КОНФИДЕНЦИАЛЬНОСТИ</div>
+    </div>
+    <div class="boxEND">
+      <div class="reference1">
+        <ul class="reference">
+          <li><a href="#second-block">ОБО МНЕ</a></li>
+          <li><a href="#third-block">ОБРАЗОВАНИЕ</a></li>
+          <li><a href="#fourth-block">ПРИНЦИПЫ РАБОТЫ</a></li>
+          <li><a href="#fifth-block">ЗАПРОСЫ</a></li>
+          <li><a href="#sixth-block">О СЕССИИ</a></li>
+          <li><a href="#seventh-block">УСЛУГИ</a></li>
+          <li><a href="#eight-block">ОТЗЫВЫ</a></li>
+          <li><a href="#nine-block">ВОПРОСЫ И ОТВЕТЫ</a></li>
+      </div>
+      
+    </div>
+    </div>
+
+   
+</div> <!-- Ending ends here-->
+
+<div class="ending-desktop"> <!--Ending-desktop starts here-->
+  <div class="surname-ending">
+    <b>АНДРЕЙ СЛИВКА.</b>
+    <div class="surname-ending-border-top"></div>
+    <div class="surname-ending-border-right"></div>
+  </div>
+  <div class="navbar-ending">
+    <li><a href="#second-block">ОБО МНЕ</a></li>
+    <li><a href="#third-block">ОБРАЗОВАНИЕ</a></li>
+    <li><a href="#fourth-block">ПРИНЦИПЫ РАБОТЫ</a></li>
+    <li><a href="#fifth-block">ЗАПРОСЫ</a></li>
+    <li><a href="#sixth-block">О СЕССИИ</a></li>
+    <li><a href="#seventh-block">УСЛУГИ</a></li>
+    <li><a href="#eight-block">ОТЗЫВЫ</a></li>
+    <li><a href="#nine-block">FAQ</a></li>
+    <div class="navbar-ending-border-top"></div>
+    <div class="navbar-ending-border-right"></div>
+  </div>
+  <div class="messenger-ending">
+    <a href="www.instagra.com" target="_blank" title="Insagram">INSTAGRAM  </a>
+    &#8226;
+    <a href="https://t.me/psychotherapistslivka" target="_blank" title="Telegram">TELEGRAM</a>
+     &#8226; 
+    <a href="https://api.whatsapp.com/send/?phone=79817854087&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp">WHATSAPP</a> 
+    <div class="messenger-ending-border-top"></div>
+    <div class="messenger-ending-border-right"></div>
+  </div>
+  
+  <div class="confident-ending">
+    ПОЛИТИКА <br>КОНФИДЕНЦИАЛЬНОСТИ
+    <div class="confident-ending-border-top"></div>
+
+  </div>
+
+</div> <!--Ending desktop ends here-->
+
+<div class="all-rights">
+  <div>Все права защищены © 2024</div>
+    <div class="collab">
+      <div><a href="https://t.me/ulyanafilipovich" target="_blank" title="Telegram">Дизайн сайта</a></div>
+      <div><a href="https://t.me/psychotherapistslivka" target="_blank" title="Telegram">Создание сайта</a></div>
+  </div>
+</div>
+
+
+
+
+
+<script>
+  
+    /*window.onload = Navbar; */
+    const headnavbar = document.querySelector(".navbar")
+let toggleCount = 0;
+function navbarToggle(idx,idy,idc,idd,ide,idb,idk) {
+  if(toggleCount === 0) {
+    let x = document.getElementById(idx);
+    let y = document.getElementById(idy);
+    let c = document.getElementById(idc);
+    let d = document.getElementById(idd);
+    let e = document.getElementById(ide);
+    let b = document.getElementById(idb);
+    let k = document.getElementById(idk);
+
+    x.classList.toggle('navbar-active');
+    y.classList.toggle('navbar-x-active');
+    c.classList.toggle('navbar-icon-hidden');
+    d.classList.toggle('navbar-submenu1-active');
+    e.classList.toggle('navbar-submenu2-active');
+    b.classList.toggle('navbar-book-in-active');
+    k.classList.toggle('navbar-button-active')
+
+    headnavbar.classList.add('add')
+    toggleCount = 1;
+  }
+  else if(toggleCount === 1) {
+    let x = document.getElementById(idx);
+    let y = document.getElementById(idy);
+    let c = document.getElementById(idc);
+    let d = document.getElementById(idd);
+    let e = document.getElementById(ide);
+    let b = document.getElementById(idb);
+    let k = document.getElementById(idk);
+    
+    x.classList.toggle('navbar-active');
+    y.classList.toggle('navbar-x-active');
+    c.classList.toggle('navbar-icon-hidden');
+    d.classList.toggle('navbar-submenu1-active')
+    e.classList.toggle('navbar-submenu2-active')
+    b.classList.toggle('navbar-book-in-active');
+    k.classList.toggle('navbar-button-active')
+   
+
+    headnavbar.classList.remove('add')
+    toggleCount = 0;
+    }
+  }
+</script>
+</body>
+</html>
